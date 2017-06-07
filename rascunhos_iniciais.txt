@@ -1,0 +1,60 @@
+class usuario{
+	nome
+	cpf
+	fotos[]
+	tipo	
+
+	pedirReverva(prof, horario, duracao, sala)	
+	fazerReserva(horario, duracao, sala)
+}
+
+class reserva{
+	user
+	sala
+	horario
+	duracao
+	proposito
+	users[]
+}
+
+class aula{
+	disciplina
+	dias[]
+	horario
+	duracao
+	alunos
+	professor
+	id
+	turma
+	sala
+} 
+
+
+class laboratorio{
+	users_cadastrados[]
+	user
+	porta
+	guarda
+	reservas
+
+	adicionarUser()
+	removerUser()
+	
+	autenticar(user)
+		portao.abrir ou portao.fechar
+	{
+		se user.tipo == aluno, verifica nas aulas
+	
+	}
+}
+
+class guarda{
+
+	permitirAcesso(user)
+	
+}
+
+class porta{
+	func abrir -> "acesso permitido" (abre porta)
+	func erro -> "acesso negado"
+}
