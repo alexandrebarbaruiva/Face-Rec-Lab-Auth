@@ -24,6 +24,11 @@ E executar
 ./a.out
 ```
 
+Para fazer testes unitários, deve-se compilar usando
+```
+g++ test.cpp
+```
+
 
 ## Usando Catch Unit Testing (LEIAM)
 
