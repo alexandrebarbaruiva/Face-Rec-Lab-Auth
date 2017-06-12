@@ -32,7 +32,15 @@ g++ test.cpp
 
 ## Usando Catch Unit Testing (LEIAM)
 
+- What's the Catch?
+
+Catch significa C++ Automated Test Cases in Headers e é uma framework de testes automatizada. Funciona pra C, C++ e Objective-C. Ela é implementada inteiramente em header file. Muito easy de usar.
+
+- Básico
 https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
+
+- Para acelerar a compilação dos unit tests
+https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 
 ### TODO:
 - Criar diagrama de classes (hard)
