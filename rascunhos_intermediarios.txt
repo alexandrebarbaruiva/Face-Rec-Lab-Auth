@@ -1,0 +1,64 @@
+class Usuario{
+	nome
+	sobrenome
+	cpfOuMatricula
+	tipo
+	acesso
+	disciplinasCursando
+	eventosRegistrado
+	fotos[]
+
+
+	pedirReverva(prof, horario, duracao, sala)
+	pedirEntrada()
+	pedirAcessoMaior()
+}
+
+class ou struct(?) Dia{
+	Horario horarios[]
+}
+class ou struct(?) Horario{
+	id
+	reservadoPor
+	evento
+	proposito
+	duracao
+	disciplina
+	professor
+	primeiroDia
+	ultimoDia
+	matrAlunos[]
+	usuariosCadastrados[]
+}
+
+class Sala{
+	Dia semanaRecorrente[] (array de dias)
+	Dia semanaUnico[] (array de dias)
+}
+
+
+class laboratorio{
+	Sala salas[]
+	reservas
+
+	adicionarUser()
+	removerUser()
+
+	autenticar(user)
+		portao.abrir ou portao.fechar
+	{
+		se user.tipo == aluno, verifica nas aulas
+
+	}
+}
+
+class Autenticador{
+	criarUsuario()
+	removerUsuario()
+
+
+}
+
+class Gerenciador{
+	permitirAcesso()
+}

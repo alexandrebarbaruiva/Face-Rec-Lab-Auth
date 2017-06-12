@@ -2,9 +2,9 @@ class usuario(){
 	nome
 	cpf
 	fotos[]
-	tipo	
+	tipo
 
-	pedirReverva(prof, horario, duracao, sala)	
+	pedirReverva(prof, horario, duracao, sala)
 	fazerReserva(horario, duracao, sala)
 }
 
@@ -27,7 +27,7 @@ class aula{
 	id
 	turma
 	sala
-} 
+}
 
 
 class laboratorio{
@@ -39,19 +39,19 @@ class laboratorio{
 
 	adicionarUser()
 	removerUser()
-	
+
 	autenticar(user)
 		portao.abrir ou portao.fechar
 	{
 		se user.tipo == aluno, verifica nas aulas
-	
+
 	}
 }
 
 class guarda{
 
 	permitirAcesso(user)
-	
+
 }
 
 class porta{

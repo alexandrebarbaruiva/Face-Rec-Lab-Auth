@@ -10,6 +10,6 @@ int main(int argc, char * argv[]) {
     std::cout<<"Opção: ";
     std::cin>>escolha;
     std::cout<<"Aguarde verificação facial e autenticação."<<std::endl;
-    processo(escolha);
+    permitirAcesso(escolha);
     return 0;
 }

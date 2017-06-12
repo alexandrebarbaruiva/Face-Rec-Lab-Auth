@@ -15,7 +15,7 @@ Trocar bool por int para aumentar possibilidades
 */
 
 //processo() deverá ser incorporado em Gerenciador
-int processo(int escolhido, bool autenticado) {
+int permitirAcesso(int escolhido, bool autenticado) {
     if (!autenticado){
         std::cout<<"Você não tem acesso ao laboratório."<<std::endl;
         return -1;
