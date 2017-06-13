@@ -42,15 +42,15 @@ Professores, funcionários e palestrantes podem reservar salas.
 
 #### Realizar cadastros
 
-![cadastrar](img/sequenciaCadastro.svg)
+![cadastrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaCadastro.svg)
 
 #### Entrar em uma sala
 
-![entrar](img/sequenciaAcesso.svg)
+![entrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaAcesso.svg)
 
 #### Requisitar reserva de sala
 
-![requisitar](img/sequenciaRequisito.svg)
+![requisitar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaRequisito.svg)
 
 
 
