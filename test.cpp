@@ -18,9 +18,9 @@ TEST_CASE("Verificação de acesso", "[porta liberada], [autorização]") {
         REQUIRE(permitirAcesso(100, true) == -1 );
     }
 
-    Usuario teste;
+    /*Usuario teste;
     SECTION("Verifica classes", "[]" ){
         REQUIRE(teste.)
-    }
+    }*/
 
 }
