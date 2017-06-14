@@ -2,15 +2,20 @@
 class Usuario; //TODO: criar subclasses
 class Autenticador; //antigo guardinha, responsável por permitir novos cadastros e agendamento
 class Gerenciador; //antiga porta, responsável por permitir entrada a lab e salas
+class BD; //onde ficam todos os dados de usuarios
 class Laboratorio; //conjunto de salas
 class Sala; //self explanatory
+class Dia; //uma classe com struct de todos os eventos do dia
 */
 /*
-Tipo de usuários
+
+Tipos de usuários
 -1: não cadastrado
 0: genérico
-1: professor
-2: aluno
+1: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
+2: aluno (não pode reservar, pode entrar somente nas salas designadas)
+3: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
+4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
 
 */
 
