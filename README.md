@@ -45,37 +45,26 @@ Professores, funcionários e palestrantes podem reservar salas.
 ## Diagramas
 
 ### Classes
+
 ![classes](img/diagramaDeClasse.png)
 
-<<<<<<< HEAD
 ### Estados
 
 ### Sequências
 
 #### Realizar cadastros
+
 (RASCUNHO)
 ![cadastrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaCadastro.svg)
 
 #### Entrar em uma sala
+
 (RASCUNHO)
 ![entrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/46c3e055e667bb1edb28321e68fa63e3e3f31534/img/sequenciaAcesso.svg)
 
 #### Requisitar reserva de sala
 (RASCUNHO)
 ![requisitar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaRequisito.svg)
-=======
-![cadastrar](img/sequenciaCadastro.png)
-
-#### Entrar em uma sala
-
-![entrar](img/sequenciaAcesso.png)
-
-#### Requisitar reserva de sala
-
-![requisitar](img/sequenciaRequisito.png)
->>>>>>> 46c3e055e667bb1edb28321e68fa63e3e3f31534
-
-
 
 ## Como instalar
 
