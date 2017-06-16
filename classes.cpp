@@ -20,36 +20,56 @@ Tipos de usuários
 */
 
 class Usuario{
-	string nome;
-    string sobrenome;
-	string cpfOuMatricula;
-
-    int tipo;
-	int acesso;
+	private:
+		std::string nome;
+    	std::string sobrenome;
+		std::string cpfOuMatricula;
+		int id;
     //TODO: fotos[]
 
 
     public:
-        Usuario();
-	    pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
-        pedirEntrada(int salaEscolhida);
-        pedirAcessoMaior();
+        Usuario(){
+			nome = "";
+		    sobrenome = "";
+			cpfOuMatricula = "";
+		    id = -1;
+		}
+		Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId){
+			nome = novoNome;
+		    sobrenome = novoSobrenome;
+			cpfOuMatricula = novoCPFouMatricula;
+			id = novoId;
+		}
 
-}
-Usuario::Usuario(void){
-    this.nome = "Not a person";
-    this.sobrenome = "";
-    this.cpfOuMatricula = "Not a number";
-    this.tipo = -1;
-    this.acesso = -1;
-}
-Usuario::Usuario(string novoNome, string novoSobrenome, string novoId){
-    this.nome = novoNome;
-    this.sobrenome = "";
-    this.cpfOuMatricula = "Not a number";
-    this.tipo = 0;
-    this.acesso = 0;
-}
+		std::string getNome(void){
+			return nome;
+		}
+		std::string getSobrenome(void){
+			return sobrenome;
+		}
+		std::string getCPFouMatricula(){
+			return cpfOuMatricula;
+		}
+		int getId(void){
+			return id;
+		}
+	    //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
+        //pedirEntrada(int salaEscolhida);
+        //pedirAcessoMaior();
+};
+
+
+
+
+
+
+
+
+
+
+
+/*
 Usuario::pedirReserva(void){
     nome = "Not a person";
     cpf = "Not a number";
@@ -80,7 +100,7 @@ Usuario::pedirEntrada(int salaEscolhida){
     }
 
 }
-
+*/
 /*
 class reserva{
 	user
