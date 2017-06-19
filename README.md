@@ -2,8 +2,12 @@
 
 ## Resumo
 
+### Geral
+
 Este projeto consiste em implementar um sistema de identificação de rostos para acesso a um suposto laboratório.
 A linguagem de programação a ser usada é o C++ e funcionalidades das bibliotecas do OpenCV serão incorporadas ao projeto. Devido ao curto espaço de tempo, não haverá desenvolvimento de GUI, tudo ocorrerá em linha de comandos (CLI).
+
+### TDD
 
 Para melhor resultado, é aconselhável o uso da técnica conhecida como TDD, test driven development, que consiste em:
 1. Criar teste;
@@ -32,27 +36,35 @@ Também conhecido como porteiro/segurança/administrador, é ele que faz todo e 
 
 ### O Usuário
 
-É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo. Você é classificado entre usuário genérico, professor, aluno, funcionário (limpeza, manuteção e estagiário de TI), palestrante.
+É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo. Você é classificado entre usuário genérico, professor, aluno, funcionário (limpeza, manutenção e estagiário de TI), palestrante.
 
 ### Quem pode reservar sala?
 
 Professores, funcionários e palestrantes podem reservar salas.
 
-### Behaviors
+## Diagramas
+
+### Classes
+
+![classes](img/diagramaDeClasse.png)
+
+### Estados
+
+### Sequências
 
 #### Realizar cadastros
 
-![cadastrar](img/sequenciaCadastro.png)
+(RASCUNHO)
+![cadastrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaCadastro.svg)
 
 #### Entrar em uma sala
 
-![entrar](img/sequenciaAcesso.png)
+(RASCUNHO)
+![entrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/46c3e055e667bb1edb28321e68fa63e3e3f31534/img/sequenciaAcesso.svg)
 
 #### Requisitar reserva de sala
-
-![requisitar](img/sequenciaRequisito.png)
-
-
+(RASCUNHO)
+![requisitar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaRequisito.svg)
 
 ## Como instalar
 
@@ -91,14 +103,24 @@ Catch significa C++ Automated Test Cases in Headers e é uma framework de testes
 - Básico
 https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
 
-- Para acelerar a compilação dos unit tests
+- Para acelerar a compilação dos unit tests (bem provável que não cheguemos a precisar)
 https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 
 ### TODO:
-- Criar diagrama de classes (hard)
-- Criar diagrama de estados (impossible)
-- Implementar o projeto (easy)
+
+* [x] Criar diagrama de classe (Alexandre);
+* [ ] Verificar diagrama de classes (Caio);
+* [ ] Criar diagrama de estados (Alexandre);
+* [ ] Verificar diagrama de estados (Caio ou Victor);
+* [x] DONE - Criar diagrama de sequências (Alexandre);
+* [ ] Verificar diagrama de sequências (Caio);
+* [ ] DOING - Implementar unit tests (Alexandre, Caio e Victor);
+* [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+* [ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
+* [ ] Fazer png's dos svg's
 
 
 #### Diagramas de sequência feitos com isto:
 * https://bramp.github.io/js-sequence-diagrams/
+
+

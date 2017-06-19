@@ -1,9 +1,9 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "others/catch.hpp"
 #include "funcoes.cpp"
 #include "classes.cpp"
 
-TEST_CASE("Verificação de acesso", "[porta liberada], [autorização]") {
+TEST_CASE("Verificação de interface de linha de comando") {
 
     SECTION("Verificação de acesso", "[porta liberada], [autorização]"){
         REQUIRE(permitirAcesso(0, false) == -1 );
@@ -16,11 +16,57 @@ TEST_CASE("Verificação de acesso", "[porta liberada], [autorização]") {
         REQUIRE(permitirAcesso(3, true) == 3 );
         REQUIRE(permitirAcesso(100, false) == -1 );
         REQUIRE(permitirAcesso(100, true) == -1 );
+        std::cout<<"ACESSO OK"<<std::endl;
+    }
+}
+
+TEST_CASE("Verificação de classes") {
+
+    SECTION("Verifica classe Usuário", "[Informação]" ){
+        Usuario userTest = Usuario("Alexandre", "Augusto", "01245678900", 1);
+        Autenticador authTest = Autenticador("Gabriel", 1);
+
+        REQUIRE(userTest.getNome() == "Alexandre");
+        REQUIRE(userTest.getSobrenome() == "Augusto");
+        REQUIRE(userTest.getCPFouMatricula() == "01245678900");
+        REQUIRE(userTest.getId() == 1);
+        REQUIRE(userTest.pedirReserva(authTest, authTest.getToken()) == "Reserva feita com sucesso.");
+        REQUIRE(userTest.requisitarAcesso() == "Acesso permitido.");
+
+
+        Usuario otherTest = Usuario();
+
+        REQUIRE(otherTest.getNome() == "");
+        REQUIRE(otherTest.getSobrenome() == "");
+        REQUIRE(otherTest.getCPFouMatricula() == "");
+        REQUIRE(otherTest.getId() == -1);
+
+        std::cout<<"USUARIO OK"<<std::endl;
     }
 
-    /*Usuario teste;
-    SECTION("Verifica classes", "[]" ){
-        REQUIRE(teste.)
-    }*/
+    SECTION("Verifica classe autenticador", "[Informação]"){
 
+        Autenticador authTest = Autenticador("Gabriel", 1);
+
+        REQUIRE(authTest.getNome() == "Gabriel");
+        REQUIRE(authTest.getId() == 1);
+        authTest.mudaSenha("novaSenha","padrao5000");
+        //REQUIRE(authTest.senha == "novaSenha");
+        authTest.mudaSenha("outraSenha","padrao5000");
+        //REQUIRE(authTest.senha == "novaSenha");
+
+
+        Autenticador otherTest = Autenticador();
+
+        REQUIRE(otherTest.getNome() == "");
+        REQUIRE(otherTest.getId() == -1);
+        otherTest.mudaSenha("novaSenha","");
+        //REQUIRE(otherTest.senha == "");
+        std::cout<<"AUTENTICADOR OK"<<std::endl;
+    }
+
+    SECTION("Verifica classe gerenciador", "[Informação]"){
+
+        std::cout<<"GERENCIADOR OK"<<std::endl;
+    }
 }

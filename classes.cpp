@@ -1,50 +1,164 @@
+#include <string>
+
 /*
 class Usuario; //TODO: criar subclasses
 class Autenticador; //antigo guardinha, responsável por permitir novos cadastros e agendamento
 class Gerenciador; //antiga porta, responsável por permitir entrada a lab e salas
+class BD; //onde ficam todos os dados de usuarios
 class Laboratorio; //conjunto de salas
 class Sala; //self explanatory
+class Dia; //uma classe com struct de todos os eventos do dia
 */
 /*
-Tipo de usuários
+
+Tipos de usuários
 -1: não cadastrado
 0: genérico
-1: professor
-2: aluno
+1: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
+2: aluno (não pode reservar, pode entrar somente nas salas designadas)
+3: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
+4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
 
 */
+class Usuario;
+class Autenticador;
+
+/** @brief Classe responsável por autenticar reservas de salas e possíveis erros
+* com a identificação facial.
+*
+* Além disso, somente é possível registrar novos usuários com a presença
+* de um autenticador. O mesmo vale para modificação de informações de usuários.
+* Sem um autenticador, somente é possível entrar e sair dos laboratórios.
+*
+* É possível que um usuário seja um autenticador, contudo haverá dois registros diferentes
+* para a mesma pessoa no sistema.
+*/
+class Autenticador{
+private:
+	std::string nome;
+	std::string senha; //para pedir outro token e acessar outras infos
+	std::string token; //para fazer reserva
+	int id;
+
+public:
+	/**
+	* Construtor de autenticador vazio, não válido.
+	*/
+	Autenticador(){
+		nome = "";
+		senha = "";
+		id = -1;
+		token = "0";
+	}
+
+	/**
+	* Construtor de autenticador válido, o token é gerado automaticamente e a senha
+	* é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um
+	* novo autenticador.
+	*/
+	Autenticador(std::string novoNome, int novoId){
+		nome = novoNome;
+		senha = "padrao5000";
+		id = novoId;
+		token = geradorToken();
+	}
+	std::string getNome(void){
+		return nome;
+	}
+	int getId(void){
+		return id;
+	}
+	void mudaSenha(std::string novaSenha, std::string antigaSenha){
+		if (senha == antigaSenha and id != -1){
+			senha = novaSenha;
+			std::cout<<"Senha mudada com sucesso."<<std::endl;
+		}
+		else if (id == -1) {
+			std::cout<<"Usuário não registrado adequadamente."<<std::endl;
+		}
+		else{
+			std::cout<<"Senha errada, você tem mais 3 tentativas."<<std::endl;
+		}
+	}
+	std::string geradorToken(void){
+		std::string token;
+		static const char letras[] =
+					"0123456789"
+					"!@#$%^&*"
+					"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+					"abcdefghijklmnopqrstuvwxyz";
+		int tamanho = sizeof(letras) - 1;
+
+		for (int i = 0; i < 13; i++){
+			token += letras[rand() % tamanho];
+		}
+		std::cout<<token<<std::endl;
+		return token;
+	}
+	std::string getToken(void){
+		return token;
+	}
+};
 
 class Usuario{
-	string nome;
-    string sobrenome;
-	string cpfOuMatricula;
+private:
+	std::string nome;
+	std::string sobrenome;
+	std::string cpfOuMatricula;
+	int id;
+//TODO: fotos[]
 
+
+public:
+    Usuario(){
+		nome = "";
+	    sobrenome = "";
+		cpfOuMatricula = "";
+	    id = -1;
+	}
+	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId){
+		nome = novoNome;
+	    sobrenome = novoSobrenome;
+		cpfOuMatricula = novoCPFouMatricula;
+		id = novoId;
+	}
+
+<<<<<<< HEAD
     int tipo;
 	int acesso; /* verificar se vai pro diagrama*/
     //TODO: fotos[]
+=======
+	std::string getNome(void){
+		return nome;
+	}
+	std::string getSobrenome(void){
+		return sobrenome;
+	}
+	std::string getCPFouMatricula(){
+		return cpfOuMatricula;
+	}
+	int getId(void){
+		return id;
+	}
+	std::string pedirReserva(Autenticador& autenticador, std::string token){
+		if (autenticador.getToken() == token){
+			return "Reserva feita com sucesso.";
+		}
+		else{
+			return "Algo de errado aconteceu";
+		}
+	}
+	std::string requisitarAcesso(){
+		return "Acesso permitido.";
+	}
+    //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
+    //pedirEntrada(int salaEscolhida);
+    //pedirAcessoMaior();
+};
+>>>>>>> 903dd78cca8604afc945f39d5a33797bdeb07aec
 
 
-    public:
-        Usuario();
-	    pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
-        pedirEntrada(int salaEscolhida);
-        pedirAcessoMaior();
-
-}
-Usuario::Usuario(void){
-    this.nome = "Not a person";
-    this.sobrenome = "";
-    this.cpfOuMatricula = "Not a number";
-    this.tipo = -1;
-    this.acesso = -1;
-}
-Usuario::Usuario(string novoNome, string novoSobrenome, string novoId){
-    this.nome = novoNome;
-    this.sobrenome = "";
-    this.cpfOuMatricula = "Not a number";
-    this.tipo = 0;
-    this.acesso = 0;
-}
+/*
 Usuario::pedirReserva(void){
     nome = "Not a person";
     cpf = "Not a number";
@@ -75,7 +189,7 @@ Usuario::pedirEntrada(int salaEscolhida){
     }
 
 }
-
+*/
 /*
 class reserva{
 	user

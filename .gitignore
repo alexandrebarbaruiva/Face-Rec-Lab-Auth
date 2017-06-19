@@ -4,3 +4,10 @@
 *.gch
 *.out
 *.fig
+*.cmake
+CMakeFiles/*
+CMakeFiles/3.7.2/*
+CMakeFiles/LaboratoryOfMassDestruction.dir/*
+LaboratoryOfMassDestruction
+Makefile
+CMakeCache.txt

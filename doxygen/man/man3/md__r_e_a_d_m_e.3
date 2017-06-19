@@ -1,0 +1,160 @@
+.TH "md__r_e_a_d_m_e" 3 "Mon Jun 19 2017" "TP1 Projeto 2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__r_e_a_d_m_eProjeto 2 
+ \- 
+.SS "Resumo"
+.PP
+.SS "Geral"
+.PP
+Este projeto consiste em implementar um sistema de identificação de rostos para acesso a um suposto laboratório\&. A linguagem de programação a ser usada é o C++ e funcionalidades das bibliotecas do OpenCV serão incorporadas ao projeto\&. Devido ao curto espaço de tempo, não haverá desenvolvimento de GUI, tudo ocorrerá em linha de comandos (CLI)\&.
+.PP
+.SS "TDD"
+.PP
+Para melhor resultado, é aconselhável o uso da técnica conhecida como TDD, test driven development, que consiste em:
+.IP "1." 4
+Criar teste;
+.IP "2." 4
+Teste falhar;
+.IP "3." 4
+Implementar código (mantém-se no 3 enquanto 4 não ocorrer);
+.IP "4." 4
+Teste bem sucedido;
+.IP "5." 4
+Voltar ao passo (1) até conclusão do projeto\&.
+.PP
+.PP
+.SS "Detalhamento do Projeto"
+.PP
+.SS "O Laboratório"
+.PP
+O Laboratório é composto de 3 salas e funciona das 8h às 22h, depois disso, acaba-se o turno do responsável pelas modificações de usuários e reservas, o que torna o laboratório espaço restrito apenas a aqueles que já haviam reserva foram do horário padrão\&.
+.PP
+.SS "O \fBAutenticador\fP"
+.PP
+Também conhecido como porteiro/segurança/administrador, é ele que faz todo e qualquer tipo de alteração às reservas e usuários\&. Considera-se o autenticador um ser onipresente, ele encontra-se em todas as salas e fora do laboratório ao mesmo tempo\&.
+.PP
+.SS "O Gerenciador"
+.PP
+É a maquininha que olha pra sua cara e te diz se você é feio ou bonito\&. Se ele não gostar da sua cara, você não entra, simples assim\&. Falando sério agora: é isso mesmo que eu falei\&.
+.PP
+.SS "A Sala"
+.PP
+É uma sala normal, contém coisas que uma sala normal possui, você precisa ter uma aula ou evento registrados nela para ter acesso\&.
+.PP
+.SS "O Usuário"
+.PP
+É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo\&. Você é classificado entre usuário genérico, professor, aluno, funcionário (limpeza, manutenção e estagiário de TI), palestrante\&.
+.PP
+.SS "Quem pode reservar sala?"
+.PP
+Professores, funcionários e palestrantes podem reservar salas\&.
+.PP
+.SS "Diagramas"
+.PP
+.SS "Classes"
+.PP
+.PP
+.SS "Estados"
+.PP
+.SS "Sequências"
+.PP
+.SS "Realizar cadastros"
+.PP
+(RASCUNHO) 
+.PP
+.SS "Entrar em uma sala"
+.PP
+(RASCUNHO) 
+.PP
+.SS "Requisitar reserva de sala"
+.PP
+(RASCUNHO) 
+.PP
+.SS "Como instalar"
+.PP
+Uma vez que se tenha o g++ em sua máquina, baixe o repositório usando o terminal ou o equivalente: 
+.PP
+.nf
+git clone git@gitlab\&.com:victorLandim/TP1Projeto2\&.git
+
+.fi
+.PP
+.PP
+Depois deve-se navegar até o diretório 
+.PP
+.nf
+cd local/onde/está/o/código/TP1Projeto2
+
+.fi
+.PP
+.PP
+Depois compilar o \fBmain\&.cpp\fP 
+.PP
+.nf
+g++ main\&.cpp
+
+.fi
+.PP
+.PP
+E executar 
+.PP
+.nf
+\&./a\&.out
+
+.fi
+.PP
+.PP
+Para fazer testes unitários, deve-se compilar usando 
+.PP
+.nf
+g++ test\&.cpp
+
+.fi
+.PP
+.PP
+.SS "Usando Catch Unit Testing (LEIAM)"
+.PP
+.IP "\(bu" 2
+What's the Catch?
+.PP
+.PP
+Catch significa C++ Automated Test Cases in Headers e é uma framework de testes automatizada\&. Funciona pra C, C++ e Objective-C\&. Ela é implementada inteiramente em header file\&. Muito easy de usar\&.
+.PP
+.IP "\(bu" 2
+Básico https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
+.IP "\(bu" 2
+Para acelerar a compilação dos unit tests (bem provável que não cheguemos a precisar) https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
+.PP
+.PP
+.SS "TODO:"
+.PP
+.IP "\(bu" 2
+[x] Criar diagrama de classe (Alexandre);
+.IP "\(bu" 2
+[ ] Verificar diagrama de classes (Caio);
+.IP "\(bu" 2
+[ ] Criar diagrama de estados (Alexandre);
+.IP "\(bu" 2
+[ ] Verificar diagrama de estados (Caio ou Victor);
+.IP "\(bu" 2
+[x] DONE - Criar diagrama de sequências (Alexandre);
+.IP "\(bu" 2
+[ ] Verificar diagrama de sequências (Caio);
+.IP "\(bu" 2
+[ ] DOING - Implementar unit tests (Alexandre, Caio e Victor);
+.IP "\(bu" 2
+[ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+.IP "\(bu" 2
+[ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
+.IP "\(bu" 2
+[ ] Fazer png's dos svg's
+.PP
+.PP
+.SS "Diagramas de sequência feitos com isto:"
+.PP
+.IP "\(bu" 2
+https://bramp.github.io/js-sequence-diagrams/ 
+.PP
+

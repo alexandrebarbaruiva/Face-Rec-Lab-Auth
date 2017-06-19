@@ -1,0 +1,217 @@
+\section{Catch\+:\+:Result\+Builder Class Reference}
+\label{class_catch_1_1_result_builder}\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+
+
+{\ttfamily \#include $<$catch.\+hpp$>$}
+
+Inheritance diagram for Catch\+:\+:Result\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catch_1_1_result_builder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Result\+Builder} (char const $\ast$macro\+Name, \textbf{ Source\+Line\+Info} const \&line\+Info, char const $\ast$captured\+Expression, \textbf{ Result\+Disposition\+::\+Flags} result\+Disposition, char const $\ast$second\+Arg=\char`\"{}\char`\"{})
+\item 
+\textbf{ $\sim$\+Result\+Builder} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ Expression\+Lhs}$<$ T const  \& $>$ \textbf{ operator$<$=} (T const \&operand)
+\item 
+\textbf{ Expression\+Lhs}$<$ bool $>$ \textbf{ operator$<$=} (bool value)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ Result\+Builder} \& \textbf{ operator$<$$<$} (T const \&value)
+\item 
+\textbf{ Result\+Builder} \& \textbf{ set\+Result\+Type} (\textbf{ Result\+Was\+::\+Of\+Type} result)
+\item 
+\textbf{ Result\+Builder} \& \textbf{ set\+Result\+Type} (bool result)
+\item 
+void \textbf{ end\+Expression} (\textbf{ Decomposed\+Expression} const \&expr)
+\item 
+virtual void \textbf{ reconstruct\+Expression} (std\+::string \&dest) const \textbf{ C\+A\+T\+C\+H\+\_\+\+O\+V\+E\+R\+R\+I\+DE}
+\item 
+\textbf{ Assertion\+Result} \textbf{ build} () const
+\item 
+\textbf{ Assertion\+Result} \textbf{ build} (\textbf{ Decomposed\+Expression} const \&expr) const
+\item 
+void \textbf{ use\+Active\+Exception} (\textbf{ Result\+Disposition\+::\+Flags} result\+Disposition=\textbf{ Result\+Disposition\+::\+Normal})
+\item 
+void \textbf{ capture\+Result} (\textbf{ Result\+Was\+::\+Of\+Type} result\+Type)
+\item 
+void \textbf{ capture\+Expression} ()
+\item 
+void \textbf{ capture\+Expected\+Exception} (std\+::string const \&expected\+Message)
+\item 
+void \textbf{ capture\+Expected\+Exception} (\textbf{ Matchers\+::\+Impl\+::\+Matcher\+Base}$<$ std\+::string $>$ const \&matcher)
+\item 
+void \textbf{ handle\+Result} (\textbf{ Assertion\+Result} const \&result)
+\item 
+void \textbf{ react} ()
+\item 
+bool \textbf{ should\+Debug\+Break} () const
+\item 
+bool \textbf{ allow\+Throws} () const
+\item 
+{\footnotesize template$<$typename ArgT , typename MatcherT $>$ }\\void \textbf{ capture\+Match} (ArgT const \&arg, MatcherT const \&matcher, char const $\ast$matcher\+String)
+\item 
+void \textbf{ set\+Exception\+Guard} ()
+\item 
+void \textbf{ unset\+Exception\+Guard} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_catch_1_1_result_builder_a8579c3056f64f9324cf1181532828376}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!Result\+Builder@{Result\+Builder}}
+\index{Result\+Builder@{Result\+Builder}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{Result\+Builder()}
+{\footnotesize\ttfamily Catch\+::\+Result\+Builder\+::\+Result\+Builder (\begin{DoxyParamCaption}\item[{char const $\ast$}]{macro\+Name,  }\item[{\textbf{ Source\+Line\+Info} const \&}]{line\+Info,  }\item[{char const $\ast$}]{captured\+Expression,  }\item[{\textbf{ Result\+Disposition\+::\+Flags}}]{result\+Disposition,  }\item[{char const $\ast$}]{second\+Arg = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a687d1e9521d97f93c883ab070cc94c64}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!````~Result\+Builder@{$\sim$\+Result\+Builder}}
+\index{````~Result\+Builder@{$\sim$\+Result\+Builder}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{$\sim$\+Result\+Builder()}
+{\footnotesize\ttfamily Catch\+::\+Result\+Builder\+::$\sim$\+Result\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_catch_1_1_result_builder_a0428fd78ab9e8e6f1aca6855f20fc715}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!allow\+Throws@{allow\+Throws}}
+\index{allow\+Throws@{allow\+Throws}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{allow\+Throws()}
+{\footnotesize\ttfamily bool Catch\+::\+Result\+Builder\+::allow\+Throws (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{class_catch_1_1_result_builder_a4fc96e7bb8b5f7119a8e79692ec97808}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!build@{build}}
+\index{build@{build}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{build()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Assertion\+Result} Catch\+::\+Result\+Builder\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{class_catch_1_1_result_builder_a475d19a04c5d10a5a87cbb85447b59da}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!build@{build}}
+\index{build@{build}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{build()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ Assertion\+Result} Catch\+::\+Result\+Builder\+::build (\begin{DoxyParamCaption}\item[{\textbf{ Decomposed\+Expression} const \&}]{expr }\end{DoxyParamCaption}) const}
+
+\mbox{\label{class_catch_1_1_result_builder_a9ac96f6220c8dd8e4feee725c6228d77}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!capture\+Expected\+Exception@{capture\+Expected\+Exception}}
+\index{capture\+Expected\+Exception@{capture\+Expected\+Exception}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{capture\+Expected\+Exception()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::capture\+Expected\+Exception (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{expected\+Message }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a2d6a194258f07f212fef098c0201038a}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!capture\+Expected\+Exception@{capture\+Expected\+Exception}}
+\index{capture\+Expected\+Exception@{capture\+Expected\+Exception}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{capture\+Expected\+Exception()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::capture\+Expected\+Exception (\begin{DoxyParamCaption}\item[{\textbf{ Matchers\+::\+Impl\+::\+Matcher\+Base}$<$ std\+::string $>$ const \&}]{matcher }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_af2ae2343965802eeeb0abbd4ea9d2d36}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!capture\+Expression@{capture\+Expression}}
+\index{capture\+Expression@{capture\+Expression}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{capture\+Expression()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::capture\+Expression (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a27425538bec8fee7ac69403c5df6078c}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!capture\+Match@{capture\+Match}}
+\index{capture\+Match@{capture\+Match}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{capture\+Match()}
+{\footnotesize\ttfamily template$<$typename ArgT , typename MatcherT $>$ \\
+void Catch\+::\+Result\+Builder\+::capture\+Match (\begin{DoxyParamCaption}\item[{ArgT const \&}]{arg,  }\item[{MatcherT const \&}]{matcher,  }\item[{char const $\ast$}]{matcher\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_catch_1_1_result_builder_a10e467f7b7a4976e5d148b4d5066e8fd}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!capture\+Result@{capture\+Result}}
+\index{capture\+Result@{capture\+Result}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{capture\+Result()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::capture\+Result (\begin{DoxyParamCaption}\item[{\textbf{ Result\+Was\+::\+Of\+Type}}]{result\+Type }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a864e03b7300271de7cc44b9864463c5a}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!end\+Expression@{end\+Expression}}
+\index{end\+Expression@{end\+Expression}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{end\+Expression()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::end\+Expression (\begin{DoxyParamCaption}\item[{\textbf{ Decomposed\+Expression} const \&}]{expr }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_ad8bb17e4ac590b75bf8630d8f3502f4e}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!handle\+Result@{handle\+Result}}
+\index{handle\+Result@{handle\+Result}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{handle\+Result()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::handle\+Result (\begin{DoxyParamCaption}\item[{\textbf{ Assertion\+Result} const \&}]{result }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a5aa79ce6160ab8cd800eb65bbd7a28a4}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{operator$<$$<$()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ Result\+Builder}\& Catch\+::\+Result\+Builder\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{T const \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_catch_1_1_result_builder_a3b87b20bcd1ef9e630880e59eeefba2a}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{operator$<$=()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Expression\+Lhs}$<$ bool $>$ Catch\+::\+Result\+Builder\+::operator$<$= (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_catch_1_1_result_builder_ad76939f5a52fcb534f97b49a0b7bc560}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{operator$<$=()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ Expression\+Lhs}$<$ T const  \& $>$ Catch\+::\+Result\+Builder\+::operator$<$= (\begin{DoxyParamCaption}\item[{T const \&}]{operand }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_catch_1_1_result_builder_a3085cdc46533d45bed6f652a2ac295c0}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!react@{react}}
+\index{react@{react}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{react()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::react (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a7d94b15cf04301a8617e7b16158b5d82}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!reconstruct\+Expression@{reconstruct\+Expression}}
+\index{reconstruct\+Expression@{reconstruct\+Expression}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{reconstruct\+Expression()}
+{\footnotesize\ttfamily virtual void Catch\+::\+Result\+Builder\+::reconstruct\+Expression (\begin{DoxyParamCaption}\item[{std\+::string \&}]{dest }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ Catch\+::\+Decomposed\+Expression} \doxyref{}{p.}{struct_catch_1_1_decomposed_expression_a9ce7f356dc96f11f80e40c82f5aa7e55}.
+
+\mbox{\label{class_catch_1_1_result_builder_a87929808b4ec9b6cb5838edc1f27df17}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!set\+Exception\+Guard@{set\+Exception\+Guard}}
+\index{set\+Exception\+Guard@{set\+Exception\+Guard}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{set\+Exception\+Guard()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::set\+Exception\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_af896e372db9d7fc90ddeceff3ad110d0}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!set\+Result\+Type@{set\+Result\+Type}}
+\index{set\+Result\+Type@{set\+Result\+Type}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{set\+Result\+Type()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ Result\+Builder}\& Catch\+::\+Result\+Builder\+::set\+Result\+Type (\begin{DoxyParamCaption}\item[{\textbf{ Result\+Was\+::\+Of\+Type}}]{result }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_ae504348b073d0360bfd5fc33347ec689}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!set\+Result\+Type@{set\+Result\+Type}}
+\index{set\+Result\+Type@{set\+Result\+Type}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{set\+Result\+Type()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ Result\+Builder}\& Catch\+::\+Result\+Builder\+::set\+Result\+Type (\begin{DoxyParamCaption}\item[{bool}]{result }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a6f2b0dbcc6cc5e0a500ac45f2534e3e7}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!should\+Debug\+Break@{should\+Debug\+Break}}
+\index{should\+Debug\+Break@{should\+Debug\+Break}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{should\+Debug\+Break()}
+{\footnotesize\ttfamily bool Catch\+::\+Result\+Builder\+::should\+Debug\+Break (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\label{class_catch_1_1_result_builder_a0990e93c1e13f96ffe02fa0f45e8f155}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!unset\+Exception\+Guard@{unset\+Exception\+Guard}}
+\index{unset\+Exception\+Guard@{unset\+Exception\+Guard}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{unset\+Exception\+Guard()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::unset\+Exception\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_catch_1_1_result_builder_a5bbd2f14a678f3e8d0f791ac6d233d65}} 
+\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}!use\+Active\+Exception@{use\+Active\+Exception}}
+\index{use\+Active\+Exception@{use\+Active\+Exception}!Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+\subsubsection{use\+Active\+Exception()}
+{\footnotesize\ttfamily void Catch\+::\+Result\+Builder\+::use\+Active\+Exception (\begin{DoxyParamCaption}\item[{\textbf{ Result\+Disposition\+::\+Flags}}]{result\+Disposition = {\ttfamily \textbf{ Result\+Disposition\+::\+Normal}} }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ catch.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\section{Catch\+:\+:Detail Namespace Reference}
+\label{namespace_catch_1_1_detail}\index{Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Approx}
+\item 
+struct \textbf{ Borg\+Type}
+\item 
+struct \textbf{ False\+Type}
+\item 
+struct \textbf{ Is\+Stream\+Insertable}
+\item 
+struct \textbf{ String\+Maker\+Base}
+\item 
+struct \textbf{ String\+Maker\+Base$<$ true $>$}
+\item 
+struct \textbf{ True\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ True\+Type} \& \textbf{ test\+Streamable} (std\+::ostream \&)
+\item 
+\textbf{ False\+Type} \textbf{ test\+Streamable} (\textbf{ False\+Type})
+\item 
+\textbf{ False\+Type} \textbf{ operator$<$$<$} (std\+::ostream const \&, \textbf{ Borg\+Type} const \&)
+\item 
+std\+::string \textbf{ raw\+Memory\+To\+String} (const void $\ast$object, std\+::size\+\_\+t size)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \textbf{ raw\+Memory\+To\+String} (const T \&object)
+\item 
+{\footnotesize template$<$typename Input\+Iterator $>$ }\\std\+::string \textbf{ range\+To\+String} (Input\+Iterator first, Input\+Iterator last)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \textbf{ make\+String} (T const \&value)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \textbf{ unprintable\+String}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\label{namespace_catch_1_1_detail_aef46b4178e08758524d25d1d969a503c}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!make\+String@{make\+String}}
+\index{make\+String@{make\+String}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{make\+String()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string Catch\+::\+Detail\+::make\+String (\begin{DoxyParamCaption}\item[{T const \&}]{value }\end{DoxyParamCaption})}
+
+\mbox{\label{namespace_catch_1_1_detail_ae9a44d574c4fbd18fabaaee05a433d88}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{operator$<$$<$()}
+{\footnotesize\ttfamily \textbf{ False\+Type} Catch\+::\+Detail\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream const \&}]{,  }\item[{\textbf{ Borg\+Type} const \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespace_catch_1_1_detail_a6650a1dff325bf29962ff15ae73fd972}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!range\+To\+String@{range\+To\+String}}
+\index{range\+To\+String@{range\+To\+String}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{range\+To\+String()}
+{\footnotesize\ttfamily template$<$typename Input\+Iterator $>$ \\
+std\+::string Catch\+::\+Detail\+::range\+To\+String (\begin{DoxyParamCaption}\item[{Input\+Iterator}]{first,  }\item[{Input\+Iterator}]{last }\end{DoxyParamCaption})}
+
+\mbox{\label{namespace_catch_1_1_detail_ac5d6c510e565ee5bddcc2236194ce29e}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!raw\+Memory\+To\+String@{raw\+Memory\+To\+String}}
+\index{raw\+Memory\+To\+String@{raw\+Memory\+To\+String}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{raw\+Memory\+To\+String()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string Catch\+::\+Detail\+::raw\+Memory\+To\+String (\begin{DoxyParamCaption}\item[{const void $\ast$}]{object,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+\mbox{\label{namespace_catch_1_1_detail_a371620ed524abfcae5c3772bf49b563a}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!raw\+Memory\+To\+String@{raw\+Memory\+To\+String}}
+\index{raw\+Memory\+To\+String@{raw\+Memory\+To\+String}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{raw\+Memory\+To\+String()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string Catch\+::\+Detail\+::raw\+Memory\+To\+String (\begin{DoxyParamCaption}\item[{const T \&}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{namespace_catch_1_1_detail_aff0ca0f561ad8053654ab27d54486197}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!test\+Streamable@{test\+Streamable}}
+\index{test\+Streamable@{test\+Streamable}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{test\+Streamable()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ True\+Type}\& Catch\+::\+Detail\+::test\+Streamable (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespace_catch_1_1_detail_aac81f01b0d687f75b8f24a925591b7ac}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!test\+Streamable@{test\+Streamable}}
+\index{test\+Streamable@{test\+Streamable}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{test\+Streamable()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ False\+Type} Catch\+::\+Detail\+::test\+Streamable (\begin{DoxyParamCaption}\item[{\textbf{ False\+Type}}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{namespace_catch_1_1_detail_a466775f4eec29ffef29ab334cd885136}} 
+\index{Catch\+::\+Detail@{Catch\+::\+Detail}!unprintable\+String@{unprintable\+String}}
+\index{unprintable\+String@{unprintable\+String}!Catch\+::\+Detail@{Catch\+::\+Detail}}
+\subsubsection{unprintable\+String}
+{\footnotesize\ttfamily const std\+::string Catch\+::\+Detail\+::unprintable\+String}
+
