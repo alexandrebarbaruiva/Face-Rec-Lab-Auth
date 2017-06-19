@@ -93,6 +93,16 @@ Para fazer testes unitários, deve-se compilar usando
 g++ test.cpp
 ```
 
+Para usar o CMake em vez de compilar tudo, deve-se ir ao diretório e digitar
+```
+cmake .
+make
+```
+
+Depois executar
+```
+./LaboratoryOfMassDestruction
+```
 
 ## Usando Catch Unit Testing (LEIAM)
 
@@ -122,5 +132,3 @@ https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 
 #### Diagramas de sequência feitos com isto:
 * https://bramp.github.io/js-sequence-diagrams/
-
-

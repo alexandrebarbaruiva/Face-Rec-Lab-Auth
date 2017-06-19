@@ -51,6 +51,9 @@ public:
 	std::string getNome(void){
 		return nome;
 	}
+	/**
+	* Informação inútil por enquanto
+	*/
 	int getId(void){
 		return id;
 	}
@@ -86,14 +89,14 @@ public:
 	}
 };
 /**
-* @brief Gerenciador de acesso ao Laboratório
+* @brief Gerenciador de acesso ao Laboratório.
 *
+* Ele será o responsável por receber as informações do usuário para liberar entrada ao laboratório.
 */
 class Gerenciador{
 public:
-	Gerenciador(){
+	Gerenciador(){}
 
-	}
 	int permitirAcesso(int escolhido, bool autenticado) {
 	    if (!autenticado){
 	        std::cout<<"Você não tem acesso ao laboratório."<<std::endl;
@@ -165,7 +168,7 @@ public:
 	std::string getSobrenome(void){
 		return sobrenome;
 	}
-	std::string getCPFouMatricula(){
+	std::string getCPFouMatricula(void){
 		return cpfOuMatricula;
 	}
 	int getId(void){
@@ -192,15 +195,60 @@ public:
 
 class Dia{
 private:
+	std::string nome;
 	std::string eventos[12];
 	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
 
 public:
-	std::string mudaEvento(std::string novoEvento, int horario){
-		horario = (horario/2);
-		evento[horario] = novoEvento;
+	Dia(){
+		nome = "Segunda";
 	}
-}
+	Dia(std::string nomeDoDia){
+		nome = nomeDoDia;
+	}
+	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int horario){
+		if (autenticador.getToken() == token){
+			eventos[horario] = novoEvento;
+			return "Evento alterado com sucesso.";
+		}
+		else{
+			return "Algo de errado aconteceu";
+		}
+	}
+	std::string mostraEvento(int horario){
+		return eventos[horario];
+	}
+	std::string mostraNomeDia(){
+		return nome;
+	}
+};
+
+class Semana{
+private:
+	Dia dias[7];
+
+public:
+	Semana(){
+		dias[0] = Dia("Segunda");
+		dias[1] = Dia("Terça");
+		dias[2] = Dia("Quarta");
+		dias[3] = Dia("Quinta");
+		dias[4] = Dia("Sexta");
+		dias[5] = Dia("Sábado");
+		dias[6] = Dia("Domingo");
+	}
+
+	std::string visualizaEventos(void){
+		for(int day = 0; day < 7; day++){
+			std::cout<<dias[day].mostraNomeDia()<<std::endl;
+			for (int hour = 0; hour < 12; hour++) {
+				std::cout<<hour<<"h até "<<hour+2 <<"h: "<<dias[day].mostraEvento(hour)<<std::endl;
+			}
+			std::cout<<std::endl;
+		}
+		return "OK";
+	}
+};
 
 /*class Laboratorio{
 private:

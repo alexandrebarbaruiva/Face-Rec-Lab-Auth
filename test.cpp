@@ -79,10 +79,26 @@ TEST_CASE("Verificação de classes") {
         std::cout<<"GERENCIADOR OK"<<std::endl;
     }
 
-    SECTION("Verifica Laboratorio", "[Informação]"){
+    SECTION("Verifica Dia", "[Informação]"){
+        Dia diaTest = Dia();
+        Autenticador authTest = Autenticador("Gabriel", 1);
+        REQUIRE(diaTest.mudaEvento(authTest, authTest.getToken(), "Novo evento.", 0) == "Evento alterado com sucesso.");
+        REQUIRE(diaTest.mostraEvento(0) == "Novo evento.");
+        REQUIRE(diaTest.mostraEvento(1) == "");
+        REQUIRE(diaTest.mostraNomeDia() == "Segunda");
+        std::cout<<"DIA OK"<<std::endl;
+    }
+
+    SECTION("Verifica semana", "[Informação]"){
+        Semana semTest = Semana();
+        REQUIRE(semTest.visualizaEventos() == "OK");
+
+    }
+    /*SECTION("Verifica Laboratorio", "[Informação]"){
         Laboratorio labTest = Laboratorio();
         REQUIRE(labTest.permitirAcesso(0, false) == -1);
 
-        std::cout<<"GERENCIADOR OK"<<std::endl;
-    }
+        std::cout<<"LABORATORIO OK"<<std::endl;
+    }*/
+
 }
