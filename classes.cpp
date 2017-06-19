@@ -85,7 +85,10 @@ public:
 		return token;
 	}
 };
-
+/**
+* @brief Gerenciador de acesso ao Laboratório
+*
+*/
 class Gerenciador{
 public:
 	Gerenciador(){
@@ -138,6 +141,8 @@ private:
 	std::string sobrenome;
 	std::string cpfOuMatricula;
 	int id;
+	int tipo;
+	int acesso; /* verificar se vai pro diagrama*/
 //TODO: fotos[]
 
 public:
@@ -185,7 +190,19 @@ public:
     //pedirAcessoMaior();
 };
 
-class Laboratorio{
+class Dia{
+private:
+	std::string eventos[12];
+	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
+
+public:
+	std::string mudaEvento(std::string novoEvento, int horario){
+		horario = (horario/2);
+		evento[horario] = novoEvento;
+	}
+}
+
+/*class Laboratorio{
 private:
 	Autenticador autenticador = Autenticador("Padrão", 10);
 	Gerenciador gerenciador = Gerenciador();
@@ -194,45 +211,8 @@ private:
 public:
 
 
+};*/
 
-}
-
-
-
-
-
-/*
-Usuario::pedirReserva(void){
-    nome = "Not a person";
-    cpf = "Not a number";
-}
-Usuario::pedirEntrada(int salaEscolhida){
-    if (this.acesso > 100 ) {
-        processo(salaEscolhida, true);
-    } else if (this.acesso > 10) {
-        if(salaEscolhida == 1 and (this.acesso == 12 or this.acesso == 13)){
-            processo(salaEscolhida, true);
-        }
-        else if(salaEscolhida == 2 and (this.acesso == 12 or this.acesso == 23)){
-            processo(salaEscolhida, true);
-        }
-        else if(salaEscolhida == 3 and (this.acesso == 13 or this.acesso == 23)){
-            processo(salaEscolhida, true);
-        }
-        else{
-            processo(salaEscolhida, true);
-        }
-    } else {
-        if(acesso == salaEscolhida){
-            processo(salaEscolhida, true);
-        }
-        else{
-            processo(salaEscolhida, false);
-        }
-    }
-
-}
-*/
 /*
 class reserva{
 	user
@@ -274,14 +254,4 @@ class laboratorio{
 	}
 }
 
-class guardinha{
-
-	permitirAcesso(user)
-
-}
-
-class porta{
-	func abrir -> "acesso permitido" (abre porta)
-	func erro -> "acesso negado"
-}
 */
