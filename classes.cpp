@@ -20,7 +20,7 @@ class Usuario{
 	string cpfOuMatricula;
 
     int tipo;
-	int acesso;
+	int acesso; /* verificar se vai pro diagrama*/
     //TODO: fotos[]
 
 
@@ -117,14 +117,26 @@ class laboratorio{
 	}
 }
 
-class guardinha{
-
-	permitirAcesso(user)
+class Autenticador{
+	string Nome;
+	char Turno;
+	string senha;
+	
+	public:
+		criarUsuario();
+		removerUsuario();
+		aumentarPermissão();
+		fazerReserva();
 
 }
 
-class porta{
-	func abrir -> "acesso permitido" (abre porta)
-	func erro -> "acesso negado"
+class Gerenciador{
+	
+	public:
+		permitirAcesso();
+		requisitaMaisFotos();
+		requisitaAutenticador();
+		requisitaVisual();
+		verificaInfoUser();
 }
 */
