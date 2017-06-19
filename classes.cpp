@@ -1,3 +1,5 @@
+#include <string>
+
 /*
 class Usuario; //TODO: criar subclasses
 class Autenticador; //antigo guardinha, responsável por permitir novos cadastros e agendamento
@@ -18,48 +20,119 @@ Tipos de usuários
 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
 
 */
+class Usuario;
+class Autenticador;
 
-class Usuario{
-	private:
-		std::string nome;
-    	std::string sobrenome;
-		std::string cpfOuMatricula;
-		int id;
-    //TODO: fotos[]
+class Autenticador{
+private:
+	std::string nome;
+	std::string senha; //para pedir outro token e acessar outras infos
+	std::string token; //para fazer reserva
+	int id;
+
+public:
+	Autenticador(){
+		nome = "";
+		senha = "";
+		id = -1;
+		token = "0";
+	}
+	Autenticador(std::string novoNome, int novoId){
+		nome = novoNome;
+		senha = "padrao5000";
+		id = novoId;
+		token = geradorToken();
+	}
+	std::string getNome(void){
+		return nome;
+	}
+	int getId(void){
+		return id;
+	}
+	void mudaSenha(std::string novaSenha, std::string antigaSenha){
+		if (senha == antigaSenha and id != -1){
+			senha = novaSenha;
+			std::cout<<"Senha mudada com sucesso."<<std::endl;
+		}
+		else if (id == -1) {
+			std::cout<<"Usuário não registrado adequadamente."<<std::endl;
+		}
+		else{
+			std::cout<<"Senha errada, você tem mais 3 tentativas."<<std::endl;
+		}
+	}
+	std::string geradorToken(void){
+		std::string token;
+		static const char letras[] =
+					"0123456789"
+					"!@#$%^&*"
+					"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+					"abcdefghijklmnopqrstuvwxyz";
+		int tamanho = sizeof(letras) - 1;
+
+		for (int i = 0; i < 13; i++){
+			token += letras[rand() % tamanho];
+		}
+		std::cout<<token<<std::endl;
+		return token;
+	}
+	std::string getToken(void){
+		return token;
+	}
 
 
-    public:
-        Usuario(){
-			nome = "";
-		    sobrenome = "";
-			cpfOuMatricula = "";
-		    id = -1;
-		}
-		Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId){
-			nome = novoNome;
-		    sobrenome = novoSobrenome;
-			cpfOuMatricula = novoCPFouMatricula;
-			id = novoId;
-		}
 
-		std::string getNome(void){
-			return nome;
-		}
-		std::string getSobrenome(void){
-			return sobrenome;
-		}
-		std::string getCPFouMatricula(){
-			return cpfOuMatricula;
-		}
-		int getId(void){
-			return id;
-		}
-	    //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
-        //pedirEntrada(int salaEscolhida);
-        //pedirAcessoMaior();
+
 };
 
+class Usuario{
+private:
+	std::string nome;
+	std::string sobrenome;
+	std::string cpfOuMatricula;
+	int id;
+//TODO: fotos[]
 
+
+public:
+    Usuario(){
+		nome = "";
+	    sobrenome = "";
+		cpfOuMatricula = "";
+	    id = -1;
+	}
+	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId){
+		nome = novoNome;
+	    sobrenome = novoSobrenome;
+		cpfOuMatricula = novoCPFouMatricula;
+		id = novoId;
+	}
+
+	std::string getNome(void){
+		return nome;
+	}
+	std::string getSobrenome(void){
+		return sobrenome;
+	}
+	std::string getCPFouMatricula(){
+		return cpfOuMatricula;
+	}
+	int getId(void){
+		return id;
+	}
+	std::string pedirReserva(Autenticador& autenticador, std::string token){
+		if (autenticador.getToken() == token){
+			return "Reserva feita com sucesso.";
+		}
+		else{
+			return "Algo de errado aconteceu";
+		}
+
+	}
+    //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
+    //pedirEntrada(int salaEscolhida);
+    //pedirAcessoMaior();
+};
 
 
 
