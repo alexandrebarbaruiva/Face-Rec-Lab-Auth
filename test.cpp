@@ -82,6 +82,7 @@ TEST_CASE("Verificação de classes") {
     SECTION("Verifica Dia", "[Informação]"){
         Dia diaTest = Dia();
         Autenticador authTest = Autenticador("Gabriel", 1);
+
         REQUIRE(diaTest.mudaEvento(authTest, authTest.getToken(), "Novo evento.", 0) == "Evento alterado com sucesso.");
         REQUIRE(diaTest.mostraEvento(0) == "Novo evento.");
         REQUIRE(diaTest.mostraEvento(1) == "");
@@ -91,7 +92,12 @@ TEST_CASE("Verificação de classes") {
 
     SECTION("Verifica semana", "[Informação]"){
         Semana semTest = Semana();
-        REQUIRE(semTest.visualizaEventos() == "OK");
+        Autenticador authTest = Autenticador("Gabriel", 1);
+
+        REQUIRE(semTest.visualizaEventos() == "OK.");
+        semTest.mudaEvento(authTest, authTest.getToken(), "Evento Python BR", 0, 8);
+        REQUIRE(semTest.visualizaEventos() == "OK.");
+        std::cout<<"SEMANA OK"<<std::endl;
 
     }
     /*SECTION("Verifica Laboratorio", "[Informação]"){

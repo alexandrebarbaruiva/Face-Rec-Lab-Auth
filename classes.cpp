@@ -207,12 +207,13 @@ public:
 		nome = nomeDoDia;
 	}
 	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int horario){
+		horario = horario/2;
 		if (autenticador.getToken() == token){
 			eventos[horario] = novoEvento;
 			return "Evento alterado com sucesso.";
 		}
 		else{
-			return "Algo de errado aconteceu";
+			return "Algo de errado aconteceu.";
 		}
 	}
 	std::string mostraEvento(int horario){
@@ -239,14 +240,28 @@ public:
 	}
 
 	std::string visualizaEventos(void){
+		std::string resposta;
 		for(int day = 0; day < 7; day++){
-			std::cout<<dias[day].mostraNomeDia()<<std::endl;
+			resposta += (dias[day].mostraNomeDia() + "\n");
 			for (int hour = 0; hour < 12; hour++) {
-				std::cout<<hour<<"h até "<<hour+2 <<"h: "<<dias[day].mostraEvento(hour)<<std::endl;
+				if(dias[day].mostraEvento(hour) != ""){
+					resposta += (std::to_string(2*hour) + "h até " + std::to_string((2*hour)+2) + "h: " + dias[day].mostraEvento(hour) + "\n");
+				}
 			}
-			std::cout<<std::endl;
 		}
-		return "OK";
+		std::cout<<resposta;
+		return "OK.";
+	}
+
+	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
+		if (autenticador.getToken() == token){
+			dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
+			std::cout<<dias[diaDesejado].mostraEvento(horario)<<std::endl;
+			return "Evento alterado com sucesso.";
+		}
+		else{
+			return "Algo de errado aconteceu.";
+		}
 	}
 };
 
