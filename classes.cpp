@@ -23,6 +23,16 @@ Tipos de usuários
 class Usuario;
 class Autenticador;
 
+/** @brief Classe responsável por autenticar reservas de salas e possíveis erros
+* com a identificação facial.
+*
+* Além disso, somente é possível registrar novos usuários com a presença
+* de um autenticador. O mesmo vale para modificação de informações de usuários.
+* Sem um autenticador, somente é possível entrar e sair dos laboratórios.
+*
+* É possível que um usuário seja um autenticador, contudo haverá dois registros diferentes
+* para a mesma pessoa no sistema.
+*/
 class Autenticador{
 private:
 	std::string nome;
@@ -31,12 +41,21 @@ private:
 	int id;
 
 public:
+	/**
+	* Construtor de autenticador vazio, não válido.
+	*/
 	Autenticador(){
 		nome = "";
 		senha = "";
 		id = -1;
 		token = "0";
 	}
+
+	/**
+	* Construtor de autenticador válido, o token é gerado automaticamente e a senha
+	* é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um
+	* novo autenticador.
+	*/
 	Autenticador(std::string novoNome, int novoId){
 		nome = novoNome;
 		senha = "padrao5000";
@@ -79,10 +98,6 @@ public:
 	std::string getToken(void){
 		return token;
 	}
-
-
-
-
 };
 
 class Usuario{
@@ -127,7 +142,9 @@ public:
 		else{
 			return "Algo de errado aconteceu";
 		}
-
+	}
+	std::string requisitarAcesso(){
+		return "Acesso permitido.";
 	}
     //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
     //pedirEntrada(int salaEscolhida);

@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "others/catch.hpp"
 #include "funcoes.cpp"
 #include "classes.cpp"
 
@@ -31,6 +31,7 @@ TEST_CASE("Verificação de classes") {
         REQUIRE(userTest.getCPFouMatricula() == "01245678900");
         REQUIRE(userTest.getId() == 1);
         REQUIRE(userTest.pedirReserva(authTest, authTest.getToken()) == "Reserva feita com sucesso.");
+        REQUIRE(userTest.requisitarAcesso() == "Acesso permitido.");
 
 
         Usuario otherTest = Usuario();
@@ -62,5 +63,10 @@ TEST_CASE("Verificação de classes") {
         otherTest.mudaSenha("novaSenha","");
         //REQUIRE(otherTest.senha == "");
         std::cout<<"AUTENTICADOR OK"<<std::endl;
+    }
+
+    SECTION("Verifica classe gerenciador", "[Informação]"){
+
+        std::cout<<"GERENCIADOR OK"<<std::endl;
     }
 }
