@@ -1,27 +1,14 @@
 #include <string>
 
-/*
 class Usuario; //TODO: criar subclasses
 class Autenticador; //antigo guardinha, responsável por permitir novos cadastros e agendamento
 class Gerenciador; //antiga porta, responsável por permitir entrada a lab e salas
-class BD; //onde ficam todos os dados de usuarios
-class Laboratorio; //conjunto de salas
-class Sala; //self explanatory
-class Dia; //uma classe com struct de todos os eventos do dia
-*/
-/*
+//class BD; //onde ficam todos os dados de usuarios
+//class Laboratorio; //conjunto de salas
+//class Sala; //self explanatory
+//class Dia; //uma classe com struct de todos os eventos do dia
 
-Tipos de usuários
--1: não cadastrado
-0: genérico
-1: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
-2: aluno (não pode reservar, pode entrar somente nas salas designadas)
-3: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
-4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
 
-*/
-class Usuario;
-class Autenticador;
 
 /** @brief Classe responsável por autenticar reservas de salas e possíveis erros
 * com a identificação facial.
@@ -50,7 +37,6 @@ public:
 		id = -1;
 		token = "0";
 	}
-
 	/**
 	* Construtor de autenticador válido, o token é gerado automaticamente e a senha
 	* é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um
@@ -77,7 +63,7 @@ public:
 			std::cout<<"Usuário não registrado adequadamente."<<std::endl;
 		}
 		else{
-			std::cout<<"Senha errada, você tem mais 3 tentativas."<<std::endl;
+			std::cout<<"Senha errada, tente novamente."<<std::endl;
 		}
 	}
 	std::string geradorToken(void){
@@ -100,6 +86,52 @@ public:
 	}
 };
 
+class Gerenciador{
+public:
+	Gerenciador(){
+
+	}
+	int permitirAcesso(int escolhido, bool autenticado) {
+	    if (!autenticado){
+	        std::cout<<"Você não tem acesso ao laboratório."<<std::endl;
+	        return -1;
+	    }
+	    else {
+	        if (escolhido == 0) {
+	            std::cout<<"Portas liberadas, você tem acesso ao laboratório, agende sua sala."<<std::endl;
+	            return 0;
+	        }
+	        if (escolhido == 1) {
+	            std::cout<<"Portas liberadas, você tem acesso à sala 1, boa aula."<<std::endl;
+	            return 1;
+	        }
+	        if (escolhido == 2) {
+	            std::cout<<"Portas liberadas, você tem acesso à sala 2, boa aula."<<std::endl;
+	            return 2;
+	        }
+	        if (escolhido == 3) {
+	            std::cout<<"Portas liberadas, você tem acesso à sala 3, boa aula."<<std::endl;
+	            return 3;
+	        }
+	        else {
+	            std::cout<<"Escolha inadequada, tente novamente."<<std::endl;
+	        }
+	    }
+	    return -1;
+	}
+};
+
+/**
+* @brief Classe principal, comunica com gerenciador e autenticador
+*
+* Tipos de usuários
+* -1: não cadastrado
+* 0: genérico
+* 1: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
+* 2: aluno (não pode reservar, pode entrar somente nas salas designadas)
+* 3: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
+* 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
+*/
 class Usuario{
 private:
 	std::string nome;
@@ -107,7 +139,6 @@ private:
 	std::string cpfOuMatricula;
 	int id;
 //TODO: fotos[]
-
 
 public:
     Usuario(){
@@ -143,17 +174,28 @@ public:
 			return "Algo de errado aconteceu";
 		}
 	}
-	std::string requisitarAcesso(){
-		return "Acesso permitido.";
+	int requisitarAcesso(Gerenciador& gerenciador, int sala){
+		if (id > 0){
+			return gerenciador.permitirAcesso(sala, true);
+		}
+		return -1;
 	}
     //pedirReserva(Sala sala, int horario, int grauDeAcesso, Autenticador autenticador);
     //pedirEntrada(int salaEscolhida);
     //pedirAcessoMaior();
 };
 
+class Laboratorio{
+private:
+	Autenticador autenticador = Autenticador("Padrão", 10);
+	Gerenciador gerenciador = Gerenciador();
+	//Sala salas[];
+
+public:
 
 
 
+}
 
 
 

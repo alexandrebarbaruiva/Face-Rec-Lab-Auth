@@ -3,7 +3,7 @@
 #include "funcoes.cpp"
 #include "classes.cpp"
 
-TEST_CASE("Verificação de interface de linha de comando") {
+/*TEST_CASE("Verificação de interface de linha de comando") {
 
     SECTION("Verificação de acesso", "[porta liberada], [autorização]"){
         REQUIRE(permitirAcesso(0, false) == -1 );
@@ -18,20 +18,24 @@ TEST_CASE("Verificação de interface de linha de comando") {
         REQUIRE(permitirAcesso(100, true) == -1 );
         std::cout<<"ACESSO OK"<<std::endl;
     }
-}
+}*/
 
 TEST_CASE("Verificação de classes") {
 
     SECTION("Verifica classe Usuário", "[Informação]" ){
         Usuario userTest = Usuario("Alexandre", "Augusto", "01245678900", 1);
         Autenticador authTest = Autenticador("Gabriel", 1);
+        Gerenciador gerTest = Gerenciador();
 
         REQUIRE(userTest.getNome() == "Alexandre");
         REQUIRE(userTest.getSobrenome() == "Augusto");
         REQUIRE(userTest.getCPFouMatricula() == "01245678900");
         REQUIRE(userTest.getId() == 1);
         REQUIRE(userTest.pedirReserva(authTest, authTest.getToken()) == "Reserva feita com sucesso.");
-        REQUIRE(userTest.requisitarAcesso() == "Acesso permitido.");
+        REQUIRE(userTest.requisitarAcesso(gerTest, 0) == 0);
+        REQUIRE(userTest.requisitarAcesso(gerTest, 1) == 1);
+        REQUIRE(userTest.requisitarAcesso(gerTest, 2) == 2);
+        REQUIRE(userTest.requisitarAcesso(gerTest, 3) == 3);
 
 
         Usuario otherTest = Usuario();
@@ -66,6 +70,18 @@ TEST_CASE("Verificação de classes") {
     }
 
     SECTION("Verifica classe gerenciador", "[Informação]"){
+        Gerenciador gerTest = Gerenciador();
+        REQUIRE(gerTest.permitirAcesso(0, false) == -1);
+        REQUIRE(gerTest.permitirAcesso(0, true) == 0);
+        REQUIRE(gerTest.permitirAcesso(1, false) == -1);
+        REQUIRE(gerTest.permitirAcesso(1, true) == 1);
+
+        std::cout<<"GERENCIADOR OK"<<std::endl;
+    }
+
+    SECTION("Verifica Laboratorio", "[Informação]"){
+        Laboratorio labTest = Laboratorio();
+        REQUIRE(labTest.permitirAcesso(0, false) == -1);
 
         std::cout<<"GERENCIADOR OK"<<std::endl;
     }
