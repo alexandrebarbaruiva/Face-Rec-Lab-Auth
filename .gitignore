@@ -1,6 +1,5 @@
 *.DS_Store
 *ini
-*.mdj
 *.gch
 *.out
 *.fig

@@ -104,7 +104,9 @@ Depois executar
 ./LaboratoryOfMassDestruction
 ```
 
-## Usando Catch Unit Testing (LEIAM)
+## Bibliotecas externas
+
+### Usando Catch Unit Testing (LEIAM)
 
 - What's the Catch?
 
@@ -116,16 +118,33 @@ https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
 - Para acelerar a compilação dos unit tests (bem provável que não cheguemos a precisar)
 https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 
+### JSON for Modern C++
+
+Design Goals:
+- Serious Testing (they use Catch too);
+- Intuitive Syntax;
+- Trivial integration (just add json.hpp and you're ready to go).
+
 ### TODO:
 
 * [x] Criar diagrama de classe (Alexandre);
 * [ ] Verificar diagrama de classes (Caio);
-* [ ] Criar diagrama de estados (Alexandre);
-* [ ] Verificar diagrama de estados (Caio ou Victor);
-* [x] DONE - Criar diagrama de sequências (Alexandre);
+* [x] Criar diagrama de sequências (Alexandre);
 * [ ] Verificar diagrama de sequências (Caio);
 * [ ] DOING - Implementar unit tests (Alexandre, Caio e Victor);
 * [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+    * [x] Classe Usuário
+    * [x] Classe Gerenciador
+    * [x] Classe Autenticador
+    * [x] Classe Dia
+    * [ ] Classe Semana
+    * [ ] Classe Sala
+    * [ ] Classe Laboratório
+    * [ ] Classe Banco de Dados
+    * [x] Adicionar biblioteca de JSON
+    * [x] Uso de CMake
+    * [x] Uso de doxygen
+    * [ ] Finalizar
 * [ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
 * [ ] Fazer png's dos svg's
 
