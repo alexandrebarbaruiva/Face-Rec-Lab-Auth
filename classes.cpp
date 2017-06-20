@@ -277,44 +277,42 @@ public:
 };*/
 
 /*
-class reserva{
-	user
-	sala
-	horario
-	duracao
-	proposito
-	users[]
-}
+class Sala{
+	private:
+		eventosRecorrentes[];
+		eventosUnicos[];
+	
+	public:
+		std::string adicionaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
+			if (autenticador.getToken() == token){
+				dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
+				std::cout<<dias[diaDesejado].mostraEvento(horario)<<std::endl;
+				return "Evento alterado com sucesso.";
+			}
+			else{
+				return "Algo de errado aconteceu.";
+			}
+		}
 
-class aula{
-	disciplina
-	dias[]
-	horario
-	duracao
-	alunos
-	professor
-	id
-	turma
-	sala
-}
 
+		std::string visualizaEventos(void){
+			std::string resposta;
+			for(int day = 0; day < 7; day++){
+				resposta += (dias[day].mostraNomeDia() + "\n");
+				for (int hour = 0; hour < 12; hour++) {
+					if(dias[day].mostraEvento(hour) != ""){
+						resposta += (std::to_string(2*hour) + "h até " + std::to_string((2*hour)+2) + "h: " + dias[day].mostraEvento(hour) + "\n");
+					}
+				}
+			}
+			std::cout<<resposta;
+			return "OK.";
+		}
+}
 
 class laboratorio{
-	users_cadastrados[]
-	user
-	porta
-	guarda
-	reservas
-
-	adicionarUser()
-	removerUser()
-
-	autenticar(user)
-		portao.abrir ou portao.fechar
-	{
-		se user.tipo == aluno, verifica nas aulas
-
-	}
+	private:
+		Salas[]
+		Reservas;
 }
-
 */
