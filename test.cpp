@@ -100,6 +100,21 @@ TEST_CASE("Verificação de classes") {
         std::cout<<"SEMANA OK"<<std::endl;
 
     }
+    SECTION("Verifica sala", "[Informação]"){
+        Sala salaTest = Sala();
+        Autenticador authTest = Autenticador("Gabriel", 1);
+
+        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
+        REQUIRE(salaTest.mudaEvento(authTest, authTest.getToken(), "Evento Python USA", 0, 1, 8) == "Evento alterado com sucesso.");
+        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
+        REQUIRE(salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 1, 20) == "Evento alterado com sucesso.");
+        REQUIRE(salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 3, 20) == "Evento alterado com sucesso.");
+        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
+        REQUIRE(salaTest.visualizaEventos(1) == "OK.");
+        REQUIRE(salaTest.visualizaEventos(2) == "OK.");
+        REQUIRE(salaTest.visualizaEventos(3) == "OK.");
+        std::cout<<"SALA OK"<<std::endl;
+    }
     /*SECTION("Verifica Laboratorio", "[Informação]"){
         Laboratorio labTest = Laboratorio();
         REQUIRE(labTest.permitirAcesso(0, false) == -1);

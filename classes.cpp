@@ -256,13 +256,41 @@ public:
 	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
 		if (autenticador.getToken() == token){
 			dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
-			std::cout<<dias[diaDesejado].mostraEvento(horario)<<std::endl;
 			return "Evento alterado com sucesso.";
 		}
 		else{
 			return "Algo de errado aconteceu.";
 		}
 	}
+};
+
+class Sala{
+private:
+	Semana semanas[20];
+
+public:
+	Sala(){
+		for(int i = 0; i < 20; i++){
+			semanas[i] = Semana();
+		}
+	}
+
+	std::string visualizaEventos(int semanaDesejada){
+		std::cout<<"SEMANA " + std::to_string(semanaDesejada)<<std::endl;
+		semanas[semanaDesejada].visualizaEventos();
+		std::cout<<"\n";
+		return "OK.";
+	}
+	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int semanaDesejada, int diaDesejado, int horario){
+		return semanas[semanaDesejada].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
+	}
+	std::string mudaEventoRecorrente(Autenticador& autenticador, std::string token, std::string novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario){
+		for (int semanaAtual = semanaInicialDesejada; semanaAtual < SemanaFinalDesejada; semanaAtual++){
+			semanas[semanaAtual].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
+		}
+		return semanas[SemanaFinalDesejada].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
+	}
+	//Mudar para leitura de jsons
 };
 
 /*class Laboratorio{

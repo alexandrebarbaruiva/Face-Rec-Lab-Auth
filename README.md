@@ -132,15 +132,31 @@ Design Goals:
 * [x] Criar diagrama de sequências (Alexandre);
 * [ ] Verificar diagrama de sequências (Caio);
 * [ ] DOING - Implementar unit tests (Alexandre, Caio e Victor);
-* [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
-    * [x] Classe Usuário
     * [x] Classe Gerenciador
+    * [x] Classe Usuário
     * [x] Classe Autenticador
     * [x] Classe Dia
-    * [ ] Classe Semana
-    * [ ] Classe Sala
+    * [x] Classe Semana
+    * [x] Classe Sala
     * [ ] Classe Laboratório
     * [ ] Classe Banco de Dados
+* [ ] Classe Banco de Dados
+* [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+    * [x] Classe Gerenciador
+    * [x] Classe Usuário
+        * [ ] Fazer leitura e gravação em JSON
+    * [x] Classe Autenticador
+        * [ ] Fazer leitura e gravação em JSON
+    * [x] Classe Dia
+        * [ ] Fazer leitura e gravação em JSON
+    * [x] Classe Semana
+        * [ ] Fazer leitura e gravação em JSON
+    * [x] Classe Sala
+        * [ ] Fazer leitura e gravação em JSON
+    * [ ] Classe Laboratório
+        * [ ] Fazer leitura e gravação em JSON
+    * [ ] Classe Banco de Dados
+        * [ ] Fazer leitura e gravação em JSON
     * [x] Adicionar biblioteca de JSON
     * [x] Uso de CMake
     * [x] Uso de doxygen
