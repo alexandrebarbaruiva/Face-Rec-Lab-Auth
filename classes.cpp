@@ -52,7 +52,7 @@ public:
 		return nome;
 	}
 	/**
-	* Informação inútil por enquanto
+	* Informação inútil por enquanto, quando implementar JSON vai ser maravilhoso.
 	*/
 	int getId(void){
 		return id;
@@ -309,7 +309,7 @@ class Sala{
 	private:
 		eventosRecorrentes[];
 		eventosUnicos[];
-	
+
 	public:
 		std::string adicionaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
 			if (autenticador.getToken() == token){

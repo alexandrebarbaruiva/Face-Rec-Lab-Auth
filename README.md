@@ -161,6 +161,7 @@ Design Goals:
     * [x] Uso de CMake
     * [x] Uso de doxygen
     * [ ] Finalizar
+* [ ] Comentar todas as classes para o doxygen
 * [ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
 * [ ] Fazer png's dos svg's
 
