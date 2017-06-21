@@ -397,6 +397,8 @@ class Sala{
 		eventosRecorrentes[];
 		eventosUnicos[];
 
+
+
 	public:
 		std::string adicionaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
 			if (autenticador.getToken() == token){
