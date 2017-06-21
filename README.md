@@ -32,15 +32,15 @@ Também conhecido como porteiro/segurança/administrador, é ele que faz todo e 
 
 ### A Sala
 
-É uma sala normal, contém coisas que uma sala normal possui, você precisa ter uma aula ou evento registrados nela para ter acesso.
+É uma sala normal, contém coisas que uma sala normal possui, você precisa ter uma aula ou evento registrados nela para ter acesso. Ela tem um limite de capacidade de 20 pessoas, não há como comportar mais pessoas adequadamente.
 
 ### O Usuário
 
-É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo. Você é classificado entre usuário genérico, professor, aluno, funcionário (limpeza, manutenção e estagiário de TI), palestrante.
+É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo. Você é classificado entre usuário genérico, professor, aluno, palestrante e funcionário (limpeza, manutenção e estagiário de TI). Usuários genéricos tem acesso apenas ao laboratório, sendo vetada a entrada às salas, o professor tem acesso às salas designadas a ele e tem a capacidade de agendar salas, seja de forma recorrente ou não. O mesmo vale para o palestrante, porém ele não pode agendar salas para eventos recorrentes, somente únicos. O aluno só entra na sala designada a ele e se ficar triste, nem na sala entra. Já o funcionário pode entrar na sala que quiser e reservar a sala que quiser (contanto que não esteja reservada por ninguém, é claro).
 
 ### Quem pode reservar sala?
 
-Professores, funcionários e palestrantes podem reservar salas.
+Professores, funcionários e palestrantes podem reservar salas. Está na descrição acima! Deve ter mão de estagiário aqui, só pode. Lembrando, professores e funcionários agendam eventos recorrentes e únicos, palestrantes somente eventos únicos. Não há limite de salas agendadas, espera-se que indivíduos sejam sensatos e agendem somente as salas necessárias.
 
 ## Diagramas
 
@@ -149,6 +149,8 @@ Design Goals:
         * [ ] Fazer leitura e gravação em JSON
     * [x] Classe Dia
         * [ ] Fazer leitura e gravação em JSON
+        * [ ] Implementar classe evento
+        * [ ] Implementar cancelamento de eventos
     * [x] Classe Semana
         * [ ] Fazer leitura e gravação em JSON
     * [x] Classe Sala

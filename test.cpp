@@ -23,13 +23,13 @@
 TEST_CASE("Verificação de classes") {
 
     SECTION("Verifica classe Usuário", "[Informação]" ){
-        Usuario userTest = Usuario("Alexandre", "Augusto", "01245678900", 1);
+        Usuario userTest = Usuario("Alexandre", "Augusto", "0124567890", 1);
         Autenticador authTest = Autenticador("Gabriel", 1);
         Gerenciador gerTest = Gerenciador();
 
         REQUIRE(userTest.getNome() == "Alexandre");
         REQUIRE(userTest.getSobrenome() == "Augusto");
-        REQUIRE(userTest.getCPFouMatricula() == "01245678900");
+        REQUIRE(userTest.getCPF() == "0124567890");
         REQUIRE(userTest.getId() == 1);
         REQUIRE(userTest.pedirReserva(authTest, authTest.getToken()) == "Reserva feita com sucesso.");
         REQUIRE(userTest.requisitarAcesso(gerTest, 0) == 0);
@@ -42,7 +42,7 @@ TEST_CASE("Verificação de classes") {
 
         REQUIRE(otherTest.getNome() == "");
         REQUIRE(otherTest.getSobrenome() == "");
-        REQUIRE(otherTest.getCPFouMatricula() == "");
+        REQUIRE(otherTest.getCPF() == "");
         REQUIRE(otherTest.getId() == -1);
 
         std::cout<<"USUARIO OK"<<std::endl;
@@ -79,11 +79,36 @@ TEST_CASE("Verificação de classes") {
         std::cout<<"GERENCIADOR OK"<<std::endl;
     }
 
+    SECTION("Verifica evento", "[Informação]"){
+        Evento eventoTest = Evento("Django Jam");
+
+        REQUIRE(eventoTest.getNomeEvento() == "Django Jam");
+        eventoTest.setNomeEvento("Jungle Jazz");
+        REQUIRE(eventoTest.getNomeEvento() == "Jungle Jazz");
+        REQUIRE(
+            eventoTest.adicionaParticipante("01234567890")
+            == "Participante registrado com sucesso. Há 19 vagas disponíveis.");
+        REQUIRE(
+            eventoTest.removeParticipante("01234567890")
+        == "Participante removido com sucesso. Há 20 vagas disponíveis.");
+
+        Evento otherTest = Evento();
+        REQUIRE(otherTest.getNomeEvento() == "");
+        REQUIRE(
+            otherTest.adicionaParticipante("01234567890")
+            == "Participante registrado com sucesso. Há 19 vagas disponíveis.");
+
+
+        std::cout<<"EVENTO OK"<<std::endl;
+    }
+
     SECTION("Verifica Dia", "[Informação]"){
         Dia diaTest = Dia();
         Autenticador authTest = Autenticador("Gabriel", 1);
 
-        REQUIRE(diaTest.mudaEvento(authTest, authTest.getToken(), "Novo evento.", 0) == "Evento alterado com sucesso.");
+        REQUIRE(
+            diaTest.mudaEvento(authTest, authTest.getToken(), "Novo evento.", 0)
+            == "Evento alterado com sucesso.");
         REQUIRE(diaTest.mostraEvento(0) == "Novo evento.");
         REQUIRE(diaTest.mostraEvento(1) == "");
         REQUIRE(diaTest.mostraNomeDia() == "Segunda");
@@ -94,9 +119,10 @@ TEST_CASE("Verificação de classes") {
         Semana semTest = Semana();
         Autenticador authTest = Autenticador("Gabriel", 1);
 
-        REQUIRE(semTest.visualizaEventos() == "OK.");
+        REQUIRE(semTest.visualizaEventosSemana() == "OK.");
         semTest.mudaEvento(authTest, authTest.getToken(), "Evento Python BR", 0, 8);
-        REQUIRE(semTest.visualizaEventos() == "OK.");
+        REQUIRE(semTest.visualizaEventosDia(0) == "OK.");
+        REQUIRE(semTest.visualizaEventosSemana() == "OK.");
         std::cout<<"SEMANA OK"<<std::endl;
 
     }
@@ -104,22 +130,40 @@ TEST_CASE("Verificação de classes") {
         Sala salaTest = Sala();
         Autenticador authTest = Autenticador("Gabriel", 1);
 
-        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
-        REQUIRE(salaTest.mudaEvento(authTest, authTest.getToken(), "Evento Python USA", 0, 1, 8) == "Evento alterado com sucesso.");
-        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
-        REQUIRE(salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 1, 20) == "Evento alterado com sucesso.");
-        REQUIRE(salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 3, 20) == "Evento alterado com sucesso.");
-        REQUIRE(salaTest.visualizaEventos(0) == "OK.");
-        REQUIRE(salaTest.visualizaEventos(1) == "OK.");
-        REQUIRE(salaTest.visualizaEventos(2) == "OK.");
-        REQUIRE(salaTest.visualizaEventos(3) == "OK.");
+        REQUIRE(salaTest.visualizaEventosSemana(0) == "OK.");
+        REQUIRE(
+            salaTest.mudaEvento(authTest, authTest.getToken(), "Evento Python USA", 0, 1, 8)
+            == "Evento alterado com sucesso.");
+        REQUIRE(salaTest.visualizaEventosSemana(0) == "OK.");
+        REQUIRE(
+            salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 1, 20)
+            == "Evento alterado com sucesso.");
+        REQUIRE(
+            salaTest.mudaEventoRecorrente(authTest, authTest.getToken(), "Aula TP1", 0, 2, 3, 20)
+            == "Evento alterado com sucesso.");
+        REQUIRE(salaTest.visualizaEventosSemana(0) == "OK.");
+        REQUIRE(salaTest.visualizaEventosSemana(1) == "OK.");
+        REQUIRE(salaTest.visualizaEventosSemana(2) == "OK.");
+        REQUIRE(salaTest.visualizaEventosSemana(3) == "OK.");
         std::cout<<"SALA OK"<<std::endl;
     }
-    /*SECTION("Verifica Laboratorio", "[Informação]"){
+
+    SECTION("Verifica Laboratorio", "[Informação]"){
         Laboratorio labTest = Laboratorio();
-        REQUIRE(labTest.permitirAcesso(0, false) == -1);
+
+        REQUIRE(labTest.visualizaEventosDia() == "OK.");
+        //(Nome do evento, semana, dia, horario, sala)
+        REQUIRE(labTest.mudaEvento("Seminário OpenCV", 0, 3, 8, 0) == "Evento alterado com sucesso.");
+        //(Nome do evento, semanaInicial, semanaFinal, dia, horario, sala)
+        REQUIRE(labTest.mudaEventoRecorrente("Aula TP1", 0, 2, 1, 20, 0) == "Evento alterado com sucesso.");
+        REQUIRE(labTest.mudaEventoRecorrente("Aula TP1", 0, 2, 3, 20, 0) == "Evento alterado com sucesso.");
+        //(salaDesejada, semanaDesejada)
+        REQUIRE(labTest.visualizaEventosSemana(0, 0) == "OK.");
+        REQUIRE(labTest.visualizaEventosSemana(1, 0) == "OK.");
+        REQUIRE(labTest.visualizaEventosSemana(0, 1) == "OK.");
+        REQUIRE(labTest.visualizaEventosSemana(0, 2) == "OK.");
 
         std::cout<<"LABORATORIO OK"<<std::endl;
-    }*/
+    }
 
 }
