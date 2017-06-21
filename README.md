@@ -142,6 +142,7 @@ Design Goals:
     * [ ] Classe Banco de Dados
 * [ ] Classe Banco de Dados
 * [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+    * [ ] CLI
     * [x] Classe Gerenciador
     * [x] Classe Usuário
         * [ ] Fazer leitura e gravação em JSON

@@ -30,7 +30,7 @@ private:
 
 public:
 	/**
-	* Construtor de autenticador vazio, não válido.
+	* Construtor de autenticador vazio, lê de JSON.
 	*/
 	Autenticador(){
 		//mudar pra ler info de JSON
@@ -39,6 +39,7 @@ public:
 		id = -1;
 		token = "0";
 	}
+
 	/**
 	* Construtor de autenticador válido, o token é gerado automaticamente e a senha
 	* é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um
@@ -59,16 +60,16 @@ public:
 	int getId(void){
 		return id;
 	}
-	void mudaSenha(std::string novaSenha, std::string antigaSenha){
+	std::string mudaSenha(std::string novaSenha, std::string antigaSenha){
 		if (senha == antigaSenha and id != -1){
 			senha = novaSenha;
-			std::cout<<"Senha mudada com sucesso."<<std::endl;
+			return "Senha mudada com sucesso.";
 		}
 		else if (id == -1) {
-			std::cout<<"Usuário não registrado adequadamente."<<std::endl;
+			return "Usuário não registrado adequadamente.";
 		}
 		else{
-			std::cout<<"Senha errada, tente novamente."<<std::endl;
+			return "Senha errada, tente novamente.";
 		}
 	}
 	std::string geradorToken(void){
@@ -99,6 +100,12 @@ class Gerenciador{
 public:
 	Gerenciador(){}
 
+	//FIXME: melhorar permissão de acesso
+
+	/** @brief
+	*
+	*
+	*/
 	int permitirAcesso(int escolhido, bool autenticado) {
 	    if (!autenticado){
 	        std::cout<<"Você não tem acesso ao laboratório."<<std::endl;
@@ -151,9 +158,10 @@ private:
 	int id;
 	int tipo;
 	//REVIEW: int acesso; @Caio: verificar se vai pro diagrama @Alexandre: Não vai pro diagrama, tipo e acesso são redundantes
-	//TODO: fotos[] - @Alexandre: Acho que não vai
+	//TODO: fotos[] - @Alexandre: Acho que agora vai
 
 public:
+	//TODO: para ler de JSON
     Usuario(){
 		nome = "";
 	    sobrenome = "";
@@ -201,29 +209,58 @@ public:
 	}
 };
 
+/** @brief Classe responsável por conter todos os eventos do laboratório.
+*
+* Eventos são aulas, palestras, limpezas, manutenções, etc.
+*
+*/
 class Evento{
 private:
 	std::string nome;
 	std::string cpf[20];
+	std::string proposito;
+	std::string reservador;
+	//TODO: adicionar nomeDoReservador (deve ser nome ou id? requisito: possuir tipo palestrante, professor ou funcionario)
 
 public:
+	//TODO: para ler de JSON
 	Evento(){
 		nome = "";
+		proposito = "";
+		reservador = "";
 		for(int i = 0; i < 20; i++){
 			cpf[i] = "";
 		}
 	}
-	Evento(std::string novoNome){
+	Evento(std::string novoNome, std::string novoProposito, std::string novoReservador){
 		nome = novoNome;
+		proposito = novoProposito;
+		reservador = novoReservador;
 		for(int i = 0; i < 20; i++){
 			cpf[i] = "";
 		}
+	}
+	std::string removeEvento(){
+		nome = "";
+		proposito = "";
+		reservador = "";
+		for(int i = 0; i < 20; i++){
+			cpf[i] = "";
+		}
+		return "Evento removido com sucesso.";
 	}
 	void setNomeEvento(std::string novoNome){
 		nome = novoNome;
 	}
 	std::string getNomeEvento(){
 		return nome;
+	}
+	std::string adicionaProposito(std::string novoProposito){
+		proposito = novoProposito;
+		return "Propósito adicionado com sucesso.";
+	}
+	std::string getProposito(){
+	return proposito;
 	}
 	std::string adicionaParticipante(std::string cpfParticipante){
 		//validaParticipante(cpfParticipante);
@@ -235,12 +272,21 @@ public:
 		}
 		return "Não há vagas disponíveis.";
 	}
+	std::string removeParticipante(std::string cpfParticipante){
+		for(int vaga = 0; vaga < 20; vaga++){
+			if(cpf[vaga] == cpfParticipante){
+				cpf[vaga] = "";
+				return "Participante removido com sucesso. Há " + std::to_string(20-vaga) + " vagas disponíveis.";
+			}
+		}
+		return "Participante não encontrado.";
+	}
 };
 
 class Dia{
 private:
 	std::string nome;
-	std::string eventos[12];
+	Evento eventos[12];
 	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
 
 public:
@@ -249,8 +295,11 @@ public:
 	}
 	Dia(std::string nomeDia){
 		nome = nomeDia;
+		for(int i = 0; i < 12; i++){
+			eventos[i] = Evento();
+		}
 	}
-	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int horario){
+	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento novoEvento, int horario){
 		horario = horario/2;
 		if (autenticador.getToken() == token){
 			eventos[horario] = novoEvento;
@@ -261,7 +310,7 @@ public:
 		}
 	}
 	std::string mostraEvento(int horario){
-		return eventos[horario];
+		return eventos[horario].getNomeEvento();
 	}
 	std::string mostraNomeDia(){
 		return nome;
@@ -309,7 +358,7 @@ public:
 		return "OK.";
 	}
 
-	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
+	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento& novoEvento, int diaDesejado, int horario){
 		if (autenticador.getToken() == token){
 			dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
 			return "Evento alterado com sucesso.";
@@ -343,10 +392,10 @@ public:
 		std::cout<<"\n";
 		return "OK.";
 	}
-	std::string mudaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int semanaDesejada, int diaDesejado, int horario){
+	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento& novoEvento, int semanaDesejada, int diaDesejado, int horario){
 		return semanas[semanaDesejada].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
 	}
-	std::string mudaEventoRecorrente(Autenticador& autenticador, std::string token, std::string novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario){
+	std::string mudaEventoRecorrente(Autenticador& autenticador, std::string token, Evento& novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario){
 		for (int semanaAtual = semanaInicialDesejada; semanaAtual < SemanaFinalDesejada; semanaAtual++){
 			semanas[semanaAtual].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
 		}
@@ -381,11 +430,11 @@ public:
 		return salas[salaDesejada].visualizaEventosSemana(semanaDesejada);
 	}
 
-	std::string mudaEvento(std::string novoEvento, int semanaDesejada, int diaDesejado, int horario, int salaDesejada){
+	std::string mudaEvento(Evento& novoEvento, int semanaDesejada, int diaDesejado, int horario, int salaDesejada){
 		return salas[salaDesejada].mudaEvento(autenticador, autenticador.getToken(), novoEvento, semanaDesejada, diaDesejado, horario);
 	}
 
-	std::string mudaEventoRecorrente(std::string novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario, int salaDesejada){
+	std::string mudaEventoRecorrente(Evento& novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario, int salaDesejada){
 		return salas[salaDesejada].mudaEventoRecorrente(autenticador, autenticador.getToken(), novoEvento, semanaInicialDesejada, SemanaFinalDesejada, diaDesejado, horario);
 	}
 
