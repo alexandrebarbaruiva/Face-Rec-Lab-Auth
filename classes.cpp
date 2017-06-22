@@ -237,11 +237,11 @@ public:
 };
 
 class Dia{
-private:
+public:
 	std::string nome;
 	Evento eventos[12];
 	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
-public:
+
 	Dia(){
 		nome = "Segunda";
 	}
@@ -274,9 +274,9 @@ public:
 };
 
 class Semana{
-private:
-	Dia dias[7];
 public:
+	Dia dias[7];
+
 	Semana(){
 		dias[0] = Dia("Segunda");
 		dias[1] = Dia("Terça");
@@ -325,9 +325,9 @@ public:
 };
 
 class Sala{
-private:
-	Semana semanas[20];
 public:
+	Semana semanas[20];
+	
 	Sala(){
 		for(int i = 0; i < 20; i++){
 			semanas[i] = Semana();

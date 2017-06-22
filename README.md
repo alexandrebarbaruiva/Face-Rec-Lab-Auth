@@ -48,7 +48,9 @@ Professores, funcionários e palestrantes podem reservar salas. Está na descri�
 
 ![classes](img/diagramaDeClasse.png)
 
-### Estados
+### Processos
+
+![behavior](img/behaviorprocess.png)
 
 ### Sequências
 

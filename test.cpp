@@ -37,6 +37,12 @@ TEST_CASE("Verificação de classes") {
     Autenticador otherAuthTest = Autenticador();
     Evento otherEventoTest = Evento();
 
+    /**
+    * Laboratorio possui 2 eventos
+    *
+    *
+    */
+
     SECTION("Verifica classe Usuário", "[Informação]" ){
         std::cout<<"USUARIO BEGIN"<<std::endl;
         REQUIRE(userTest.getNome() == "Alexandre");
@@ -69,7 +75,8 @@ TEST_CASE("Verificação de classes") {
 
     SECTION("Verifica classe Gerenciador", "[Informação]"){
         std::cout<<"GERENCIADOR BEGIN"<<std::endl;
-        REQUIRE(gerTest.permitirAcesso(userTest, salaTest, 0, 0) == -1);
+        //(usuario, salaDesejada, salaNum, horarioDesejado)
+        REQUIRE(gerTest.permitirAcesso(userTest, salaTest, 1, 0) == -1);
         //REQUIRE(gerTest.permitirAcesso(0, true) == 0);
         //REQUIRE(gerTest.permitirAcesso(1, false) == -1);
         //REQUIRE(gerTest.permitirAcesso(1, true) == 1);
