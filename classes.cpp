@@ -27,7 +27,6 @@ private:
 	std::string senha; //para pedir outro token e acessar outras infos
 	std::string token; //para fazer reserva
 	int id;
-
 public:
 	/**
 	* Construtor de autenticador vazio, lê de JSON.
@@ -91,54 +90,7 @@ public:
 	}
 };
 /**
-* @brief Gerenciador de acesso ao Laboratório.
-*
-* Ele será o responsável por receber as informações do usuário para liberar entrada ao laboratório.
-* TODO: Concluir.
-*/
-class Gerenciador{
-public:
-	Gerenciador(){}
-
-	//FIXME: melhorar permissão de acesso
-
-	/** @brief
-	*
-	*
-	*/
-	int permitirAcesso(int escolhido, bool autenticado) {
-	    if (!autenticado){
-	        std::cout<<"Você não tem acesso ao laboratório."<<std::endl;
-	        return -1;
-	    }
-	    else {
-	        if (escolhido == 0) {
-	            std::cout<<"Portas liberadas, você tem acesso ao laboratório, agende sua sala."<<std::endl;
-	            return 0;
-	        }
-	        if (escolhido == 1) {
-	            std::cout<<"Portas liberadas, você tem acesso à sala 1, boa aula."<<std::endl;
-	            return 1;
-	        }
-	        if (escolhido == 2) {
-	            std::cout<<"Portas liberadas, você tem acesso à sala 2, boa aula."<<std::endl;
-	            return 2;
-	        }
-	        if (escolhido == 3) {
-	            std::cout<<"Portas liberadas, você tem acesso à sala 3, boa aula."<<std::endl;
-	            return 3;
-	        }
-	        else {
-	            std::cout<<"Escolha inadequada, tente novamente."<<std::endl;
-	        }
-	    }
-	    return -1;
-	}
-};
-
-/**
 * @brief Classe principal, comunica com gerenciador e autenticador
-*
 * Tipos de usuários
 * -1: não cadastrado
 * 0: genérico (somente pode entrar no laboratório)
@@ -159,7 +111,6 @@ private:
 	int tipo;
 	//REVIEW: int acesso; @Caio: verificar se vai pro diagrama @Alexandre: Não vai pro diagrama, tipo e acesso são redundantes
 	//TODO: fotos[] - @Alexandre: Acho que agora vai
-
 public:
 	//TODO: para ler de JSON
     Usuario(){
@@ -201,12 +152,7 @@ public:
 			return "Algo de errado aconteceu";
 		}
 	}
-	int requisitarAcesso(Gerenciador& gerenciador, int sala){
-		if (id > 0){
-			return gerenciador.permitirAcesso(sala, true);
-		}
-		return -1;
-	}
+	int requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado);
 };
 
 /** @brief Classe responsável por conter todos os eventos do laboratório.
@@ -221,7 +167,6 @@ private:
 	std::string proposito;
 	std::string reservador;
 	//TODO: adicionar nomeDoReservador (deve ser nome ou id? requisito: possuir tipo palestrante, professor ou funcionario)
-
 public:
 	//TODO: para ler de JSON
 	Evento(){
@@ -260,7 +205,7 @@ public:
 		return "Propósito adicionado com sucesso.";
 	}
 	std::string getProposito(){
-	return proposito;
+		return proposito;
 	}
 	std::string adicionaParticipante(std::string cpfParticipante){
 		//validaParticipante(cpfParticipante);
@@ -281,6 +226,14 @@ public:
 		}
 		return "Participante não encontrado.";
 	}
+	std::string verificaParticipante(std::string participanteVerificado){
+		for (int i = 0; i < 20; i++){
+			if(cpf[i] == participanteVerificado){
+				return "Participante encontra-se registrado no evento.";
+			}
+		}
+		return "Participante não registrado no evento.";
+	}
 };
 
 class Dia{
@@ -288,7 +241,6 @@ private:
 	std::string nome;
 	Evento eventos[12];
 	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
-
 public:
 	Dia(){
 		nome = "Segunda";
@@ -315,12 +267,15 @@ public:
 	std::string mostraNomeDia(){
 		return nome;
 	}
+	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
+		horarioDesejado = horarioDesejado/2;
+		return eventos[horarioDesejado].verificaParticipante(participanteVerificado);
+	}
 };
 
 class Semana{
 private:
 	Dia dias[7];
-
 public:
 	Semana(){
 		dias[0] = Dia("Segunda");
@@ -331,7 +286,6 @@ public:
 		dias[5] = Dia("Sábado");
 		dias[6] = Dia("Domingo");
 	}
-
 	std::string visualizaEventosDia(int diaDesejado){
 		std::string resposta;
 		resposta += (dias[diaDesejado].mostraNomeDia() + "\n");
@@ -343,7 +297,6 @@ public:
 		std::cout<<resposta;
 		return "OK.";
 	}
-
 	std::string visualizaEventosSemana(void){
 		std::string resposta;
 		for(int day = 0; day < 7; day++){
@@ -357,7 +310,6 @@ public:
 		std::cout<<resposta;
 		return "OK.";
 	}
-
 	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento& novoEvento, int diaDesejado, int horario){
 		if (autenticador.getToken() == token){
 			dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
@@ -367,25 +319,25 @@ public:
 			return "Algo de errado aconteceu.";
 		}
 	}
+	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
+		return dias[0].verificaParticipante(participanteVerificado, horarioDesejado);
+	}
 };
 
 class Sala{
 private:
 	Semana semanas[20];
-
 public:
 	Sala(){
 		for(int i = 0; i < 20; i++){
 			semanas[i] = Semana();
 		}
 	}
-
 	std::string visualizaEventosDia(int diaDesejado, int semanaDesejada){
 		semanas[semanaDesejada].visualizaEventosDia(diaDesejado);
 		std::cout<<"\n";
 		return "OK.";
 	}
-
 	std::string visualizaEventosSemana(int semanaDesejada){
 		std::cout<<"SEMANA " + std::to_string(semanaDesejada)<<std::endl;
 		semanas[semanaDesejada].visualizaEventosSemana();
@@ -401,7 +353,37 @@ public:
 		}
 		return semanas[SemanaFinalDesejada].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
 	}
+	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
+		return semanas[0].verificaParticipante(participanteVerificado, horarioDesejado);
+	}
 	//Mudar para leitura de jsons
+};
+
+/**
+* @brief Gerenciador de acesso ao Laboratório.
+*
+* Ele será o responsável por receber as informações do usuário para liberar entrada ao laboratório.
+* TODO: Concluir.
+*/
+class Gerenciador{
+public:
+	Gerenciador(){}
+	//FIXME: melhorar permissão de acesso
+	/** @brief Permite acesso às salas e ao laboratório
+	* 0: Sala 1
+	* 1: Sala 2
+	* 2: Sala 3
+	*/
+	int permitirAcesso(Usuario& usuario, Sala& salaDesejada, int sala, int horarioDesejado) {
+		if(salaDesejada.verificaParticipante(usuario.getCPF(), horarioDesejado) == "Participante encontra-se registrado no evento."){
+			std::cout<<(usuario.getNome() + " possui acesso, sala "+ std::to_string(sala) +" liberada.")<<std::endl;
+			return sala;
+		}
+		else{
+			std::cout<<(usuario.getNome() + " não possui acesso. Favor procurar responsáveis.")<<std::endl;
+			return -1;
+		}
+	}
 };
 
 class Laboratorio{
@@ -409,7 +391,6 @@ private:
 	Autenticador autenticador;
 	Gerenciador gerenciador;
 	Sala salas[3];
-
 public:
 	Laboratorio(){
 		autenticador = Autenticador("Padrão", 1);
@@ -425,55 +406,20 @@ public:
 		}
 		return "OK.";
 	}
-
 	std::string visualizaEventosSemana(int salaDesejada, int semanaDesejada){
 		return salas[salaDesejada].visualizaEventosSemana(semanaDesejada);
 	}
-
 	std::string mudaEvento(Evento& novoEvento, int semanaDesejada, int diaDesejado, int horario, int salaDesejada){
 		return salas[salaDesejada].mudaEvento(autenticador, autenticador.getToken(), novoEvento, semanaDesejada, diaDesejado, horario);
 	}
-
 	std::string mudaEventoRecorrente(Evento& novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario, int salaDesejada){
 		return salas[salaDesejada].mudaEventoRecorrente(autenticador, autenticador.getToken(), novoEvento, semanaInicialDesejada, SemanaFinalDesejada, diaDesejado, horario);
 	}
-
+	int requisitarAcesso(Usuario& usuario, int salaDesejada, int horarioDesejado){
+		return gerenciador.permitirAcesso(usuario, salas[salaDesejada], salaDesejada, horarioDesejado);
+	}
 };
 
-/*
-class Sala{
-	private:
-		eventosRecorrentes[];
-		eventosUnicos[];
-
-
-
-	public:
-		std::string adicionaEvento(Autenticador& autenticador, std::string token, std::string novoEvento, int diaDesejado, int horario){
-			if (autenticador.getToken() == token){
-				dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
-				std::cout<<dias[diaDesejado].mostraEvento(horario)<<std::endl;
-				return "Evento alterado com sucesso.";
-			}
-			else{
-				return "Algo de errado aconteceu.";
-			}
-		}
-
-
-		std::string visualizaEventos(void){
-			std::string resposta;
-			for(int day = 0; day < 7; day++){
-				resposta += (dias[day].mostraNomeDia() + "\n");
-				for (int hour = 0; hour < 12; hour++) {
-					if(dias[day].mostraEvento(hour) != ""){
-						resposta += (std::to_string(2*hour) + "h até " + std::to_string((2*hour)+2) + "h: " + dias[day].mostraEvento(hour) + "\n");
-					}
-				}
-			}
-			std::cout<<resposta;
-			return "OK.";
-		}
+int Usuario::requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado){
+	return laboratorio.requisitarAcesso(*this, salaDesejada, horarioDesejado);
 }
-
-*/
