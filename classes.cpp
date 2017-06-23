@@ -109,8 +109,7 @@ private:
 	std::string matricula;
 	int id;
 	int tipo;
-	//REVIEW: int acesso; @Caio: verificar se vai pro diagrama @Alexandre: Não vai pro diagrama, tipo e acesso são redundantes
-	//TODO: fotos[] - @Alexandre: Acho que agora vai
+	//TODO: fotos[]
 public:
 	//TODO: para ler de JSON
     Usuario(){
@@ -119,11 +118,12 @@ public:
 		cpf = "";
 	    id = -1;
 	}
-	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoId){
+	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo){
 		nome = novoNome;
 	    sobrenome = novoSobrenome;
 		cpf = novoCPF;
-		id = novoId;
+		id = 1;
+		tipo = novoTipo;
 	}
 
 	std::string getNome(void){
@@ -327,7 +327,7 @@ public:
 class Sala{
 public:
 	Semana semanas[20];
-	
+
 	Sala(){
 		for(int i = 0; i < 20; i++){
 			semanas[i] = Semana();
@@ -387,11 +387,11 @@ public:
 };
 
 class Laboratorio{
-private:
+public:
 	Autenticador autenticador;
 	Gerenciador gerenciador;
 	Sala salas[3];
-public:
+
 	Laboratorio(){
 		autenticador = Autenticador("Padrão", 1);
 		gerenciador = Gerenciador();
