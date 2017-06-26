@@ -37,6 +37,11 @@ TEST_CASE("Verificação de classes") {
     Autenticador otherAuthTest = Autenticador();
     Evento otherEventoTest = Evento();
 
+    SECTION("Processo completo"){
+        //Cria novo professor
+        Usuario professor = Usuario("Alexandre", "Augusto", "11111111111", 3);
+    }
+
     /**
     * Laboratorio possui 2 eventos
     *
