@@ -48,9 +48,9 @@ Professores, funcionários e palestrantes podem reservar salas. Está na descri�
 
 ![classes](img/diagramaDeClasse.png)
 
-### Processos
+### Decisão
 
-![behavior](img/behaviorprocess.png)
+![behavior](img/decisionprocess.png)
 
 ### Sequências
 
@@ -105,9 +105,6 @@ Depois executar
 ```
 ./LaboratoryOfMassDestruction
 ```
-## Acessando doxygen
-
-Clique [aqui](html/md__r_e_a_d_m_e.html).
 
 ## Bibliotecas externas
 
@@ -176,3 +173,5 @@ Design Goals:
 
 #### Diagramas de sequência feitos com isto:
 * https://bramp.github.io/js-sequence-diagrams/
+
+
