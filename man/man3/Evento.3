@@ -1,0 +1,76 @@
+.TH "Evento" 3 "Mon Jun 26 2017" "Projeto Laboratório TP1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Evento \- Classe responsável por conter todos os eventos do laboratório\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEvento\fP ()"
+.br
+.ti -1c
+.RI "\fBEvento\fP (std::string novoNome, std::string novoProposito, std::string novoReservador)"
+.br
+.ti -1c
+.RI "std::string \fBremoveEvento\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNomeEvento\fP (std::string novoNome)"
+.br
+.ti -1c
+.RI "std::string \fBgetNomeEvento\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBadicionaProposito\fP (std::string novoProposito)"
+.br
+.ti -1c
+.RI "std::string \fBgetProposito\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBadicionaParticipante\fP (std::string cpfParticipante)"
+.br
+.ti -1c
+.RI "std::string \fBremoveParticipante\fP (std::string cpfParticipante)"
+.br
+.ti -1c
+.RI "std::string \fBverificaParticipante\fP (std::string participanteVerificado)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Classe responsável por conter todos os eventos do laboratório\&. 
+
+Eventos são aulas, palestras, limpezas, manutenções, etc\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Evento::Evento ()\fC [inline]\fP"
+
+.SS "Evento::Evento (std::string novoNome, std::string novoProposito, std::string novoReservador)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string Evento::adicionaParticipante (std::string cpfParticipante)\fC [inline]\fP"
+
+.SS "std::string Evento::adicionaProposito (std::string novoProposito)\fC [inline]\fP"
+
+.SS "std::string Evento::getNomeEvento ()\fC [inline]\fP"
+
+.SS "std::string Evento::getProposito ()\fC [inline]\fP"
+
+.SS "std::string Evento::removeEvento ()\fC [inline]\fP"
+
+.SS "std::string Evento::removeParticipante (std::string cpfParticipante)\fC [inline]\fP"
+
+.SS "void Evento::setNomeEvento (std::string novoNome)\fC [inline]\fP"
+
+.SS "std::string Evento::verificaParticipante (std::string participanteVerificado)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Projeto Laboratório TP1 from the source code\&.

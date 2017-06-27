@@ -1,0 +1,63 @@
+.TH "Autenticador" 3 "Mon Jun 26 2017" "Projeto Laboratório TP1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Autenticador \- Classe responsável por autenticar reservas de salas e possíveis erros com a identificação facial\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAutenticador\fP ()"
+.br
+.ti -1c
+.RI "\fBAutenticador\fP (std::string novoNome, int novoId)"
+.br
+.ti -1c
+.RI "std::string \fBgetNome\fP (void)"
+.br
+.ti -1c
+.RI "int \fBgetId\fP (void)"
+.br
+.ti -1c
+.RI "std::string \fBmudaSenha\fP (std::string novaSenha, std::string antigaSenha)"
+.br
+.ti -1c
+.RI "std::string \fBgeradorToken\fP (void)"
+.br
+.ti -1c
+.RI "std::string \fBgetToken\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Classe responsável por autenticar reservas de salas e possíveis erros com a identificação facial\&. 
+
+Além disso, somente é possível registrar novos usuários com a presença de um autenticador\&. O mesmo vale para modificação de informações de usuários\&. Sem um autenticador, somente é possível entrar e sair dos laboratórios\&.
+.PP
+É possível que um usuário seja um autenticador, contudo haverá dois registros diferentes para a mesma pessoa no sistema\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Autenticador::Autenticador ()\fC [inline]\fP"
+Construtor de autenticador vazio, lê de JSON\&. 
+.SS "Autenticador::Autenticador (std::string novoNome, int novoId)\fC [inline]\fP"
+Construtor de autenticador válido, o token é gerado automaticamente e a senha é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um novo autenticador\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string Autenticador::geradorToken (void)\fC [inline]\fP"
+
+.SS "int Autenticador::getId (void)\fC [inline]\fP"
+Informação inútil por enquanto, quando implementar JSON vai ser maravilhoso\&. 
+.SS "std::string Autenticador::getNome (void)\fC [inline]\fP"
+
+.SS "std::string Autenticador::getToken (void)\fC [inline]\fP"
+
+.SS "std::string Autenticador::mudaSenha (std::string novaSenha, std::string antigaSenha)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Projeto Laboratório TP1 from the source code\&.

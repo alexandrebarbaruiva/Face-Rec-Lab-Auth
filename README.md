@@ -105,6 +105,9 @@ Depois executar
 ```
 ./LaboratoryOfMassDestruction
 ```
+## Acessando doxygen
+
+Clique [aqui](html/md__r_e_a_d_m_e.html).
 
 ## Bibliotecas externas
 
