@@ -101,67 +101,14 @@ public:
 *
 * TODO: Concluir.
 */
-class Usuario{
-private:
-	std::string nome;
-	std::string sobrenome;
-	std::string cpf;
-	std::string matricula;
-	int id;
-	int tipo;
-	//TODO: fotos[]
-public:
-	//TODO: para ler de JSON
-    Usuario(){
-		nome = "";
-	    sobrenome = "";
-		cpf = "";
-	    id = -1;
-	}
-	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo){
-		nome = novoNome;
-	    sobrenome = novoSobrenome;
-		cpf = novoCPF;
-		id = 1;
-		tipo = novoTipo;
-	}
-
-	std::string getNome(void){
-		return nome;
-	}
-	std::string getSobrenome(void){
-		return sobrenome;
-	}
-	std::string getCPF(void){
-		return cpf;
-	}
-	int getId(void){
-		return id;
-	}
-
-	/** @brief Função responsável pela reserva de salas para eventos.
-	*
-	* FIXME: Melhorar função
-	*
-	*/
-	std::string pedirReserva(Autenticador& autenticador, Evento& eventoNovo, int horarioDesejado){
-		if (tipo < 1)){
-			//autenticador.adicionaNovoEvento(eventoNovo, horarioDesejado);
-			return "Reserva feita com sucesso.";
-		}
-		else{
-			return "Algo de errado aconteceu";
-		}
-	}
-	int requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado);
-};
-
-/** @brief Classe responsável por conter todos os eventos do laboratório.
+/* @brief Classe responsável por conter todos os eventos do laboratório.
 *
 * Eventos são aulas, palestras, limpezas, manutenções, etc.
 *
 */
+
 class Evento{
+
 private:
 	std::string nome;
 	std::string cpf[20];
@@ -236,6 +183,62 @@ public:
 		return "Participante não registrado no evento.";
 	}
 };
+
+class Usuario{
+private:
+	std::string nome;
+	std::string sobrenome;
+	std::string cpf;
+	std::string matricula;
+	int id;
+	int tipo;
+	//TODO: fotos[]
+public:
+	//TODO: para ler de JSON
+    Usuario(){
+		nome = "";
+	    sobrenome = "";
+		cpf = "";
+	    id = -1;
+	}
+	Usuario(std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo){
+		nome = novoNome;
+	    sobrenome = novoSobrenome;
+		cpf = novoCPF;
+		id = 1;
+		tipo = novoTipo;
+	}
+
+	std::string getNome(void){
+		return nome;
+	}
+	std::string getSobrenome(void){
+		return sobrenome;
+	}
+	std::string getCPF(void){
+		return cpf;
+	}
+	int getId(void){
+		return id;
+	}
+
+	/** @brief Função responsável pela reserva de salas para eventos.
+	*
+	* FIXME: Melhorar função
+	*/
+	
+	std::string pedirReserva(Autenticador& autenticador, Evento& eventoNovo, int horarioDesejado){
+		if (tipo < 1){
+			//autenticador.adicionaNovoEvento(eventoNovo, horarioDesejado);
+			return "Reserva feita com sucesso.";
+		}
+		else{
+			return "Algo de errado aconteceu";
+		}
+	}
+	int requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado);
+};
+
 
 class Dia{
 public:
