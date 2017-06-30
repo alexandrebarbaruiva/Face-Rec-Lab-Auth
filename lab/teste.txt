@@ -1,0 +1,13 @@
+// Sala;
+// Semana;
+// Segunda; Evento1; Evento2; Evento3;
+// Terça;...
+// Semana; //Vai até não
+// Segunda; Evento1; Evento2; Evento3;
+// Terça;;;;;;;;;
+// ---------------Divisor----------------
+// Sala;
+// Semana;
+// Segunda; Evento1; Evento2; Evento3;
+// Terça;...
+// Sexta

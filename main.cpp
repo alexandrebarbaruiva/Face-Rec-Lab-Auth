@@ -12,6 +12,7 @@ void registrar();
 Laboratorio labOficial = Laboratorio();
 Usuario usuarioAtual;
 
+// INICIO
 int boasVindas(){
     int opcaoEscolhida;
     std::cout<<"====================================================="<<std::endl;
@@ -26,7 +27,6 @@ int boasVindas(){
     catch (int e){
         std::cout<<"Opção inválida."<<std::endl;
     }
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     if(opcaoEscolhida == 1){
         escolhaOpcoes();
     }
@@ -35,6 +35,8 @@ int boasVindas(){
     }
     return -1;
 }
+
+// OPCAO 0
 void registrar(){
     std::string novoNome;
     std::string novoSobrenome;
@@ -56,6 +58,8 @@ void registrar(){
     usuarioAtual = Usuario(novoNome,novoSobrenome,novoCPF,novoTipo);
     std::cout<<"Registro efetuado com sucesso"<<std::endl;
 }
+
+// OPCAO 1
 int escolhaOpcoes(){
     int opcaoEscolhida;
     std::cout<<"====================================================="<<std::endl;
@@ -76,34 +80,99 @@ int escolhaOpcoes(){
     std::cout<<"Verificação facial não identificada."<<std::endl;
     std::cout<<"Tentando login manualmente."<<std::endl;
     sleep(2);
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
     fazerLogin(opcaoEscolhida);
     return 0;
 }
 int fazerLogin(int opcaoEscolhida){
     std::string cpf;
+    int = horarioUsuario;
     std::cout<<"====================================================="<<std::endl;
-    std::cout<<"\n\n\n\n\n\n\n\n\n\n";
-    std::cout<<"Digite seu CPF: ";
-    try{
-        std::cin>>cpf;
-    }
-    catch (int e){
-        std::cout<<"Opção inválida."<<std::endl;
-    }
     bool allowed = false;
-    for(int i = 0; i < 24; i++){
-        if(labOficial.salas[opcaoEscolhida].semanas[0].dias[0].eventos[(i/2)].verificaParticipante(cpf)== "Participante encontra-se registrado no evento."){
-            allowed = true;
-            std::cout<<"Participante encontra-se registrado no evento. Portas para sala " + std::to_string(opcaoEscolhida) + " abertas.";
-            break;
+    if(opcaoEscolhida > 0 and opcaoEscolhida <= 3){
+        std::cout<<"\n\n\n\n\n\n\n\n\n\n";
+        std::cout<<"Qual o horário do evento? Digite apenas o número: ";
+        std::cout<<"Digite seu CPF: ";
+        try{
+            std::cin>>cpf;
+        }
+        catch (int e){
+            std::cout<<"Opção inválida."<<std::endl;
+        }
+        for(int i = 0; i < 24; i++){
+            if(labOficial.salas[opcaoEscolhida].semanas[0].dias[0].eventos[(i/2)].verificaParticipante(cpf)== "Participante encontra-se registrado no evento."){
+                allowed = true;
+                std::cout<<"Participante encontra-se registrado no evento. Portas para sala " + std::to_string(opcaoEscolhida) + " abertas.";
+                break;
+            }
         }
     }
+    else if(usuarioAtual.getTipo() >= 2 and usuarioAtual.getTipo() <= 4){
+        std::cout<<"\n\n\n\n\n\n\n\n\n\n";
+        std::cout<<"Digite seu CPF: ";
+        try{
+            std::cin>>cpf;
+        }
+        catch (int e){
+            std::cout<<"Opção inválida."<<std::endl;
+        }
+        // Por enquanto evento sobrescreve o que estiver no local
+        if(opcaoEscolhida == 4){
+            std::string nomeEvento;
+            std::string propositoEvento;
+            std::string reservadorEvento = usuarioAtual;
+            int semanaEvento;
+            int diaEvento;
+            int horarioEvento;
+
+            std::cout<<"Qual o nome do evento? ";
+            std::cin>>nomeEvento;
+
+            std::cout<<"Qual o propósito do evento? ";
+            std::cin>>propositoEvento;
+
+            std::cout<<"Qual a semana do evento? ";
+            std::cin>>semanaEvento;
+            std::cout<<"Qual o dia do evento?\n0) Segunda\t1) Terça\t2) Quarta\t3) Quinta\t4) Sexta\t5) Sábado\t6) Domingo\n";
+            std::cin>>diaEvento;
+            std::cout<<"Qual o horário do evento? ";
+            std::cin>>horarioEvento;
+
+            if (usuarioAtual.getTipo() >= 3){
+                int rec;
+                std::cout<<"Deseja que o evento seja recorrente?\n0) Sim\n1) Não\n";
+                std::cin>>rec;
+
+                if(rec == 0){
+                    if(labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)].getNomeEvento == ""){
+                        // Good to go! Quem insere? Deveria ser Autenticador, por falta de tempo vai ser o próprio evento.
+                        labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)] = Evento(novoNome, novoProposito, reservadorEvento);
+                    }
+                }
+                else if(rec == 1){
+                    // FIXME: Por enquanto sem diferença entre recorrente
+                    if(labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)].getNomeEvento == ""){
+                        labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)] = Evento(novoNome, novoProposito, reservadorEvento);
+                    }
+                }
+            }
+            else{
+                if(labOficial.salas[opcaoEscolhida].semanas[0].dias[0].eventos[(i/2)].getNomeEvento == "")
+            }
+        }
+        // FIXME: Faz o mesmo que 4
+        else if(opcaoEscolhida == 5){
+
+        }
+        //
+        else if(opcaoEscolhida == 6){
+
+        }
+
+    }
+
     if(allowed){
         std::cout<<"Fim do programa.";
         sleep(3);
-        std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-
         return 0;
     }
     else{
@@ -117,8 +186,6 @@ int fazerLogin(int opcaoEscolhida){
 }
 
 int main(int argc, char * argv[]) {
-    int escolha;
-    //CLI
     while(true){
         boasVindas();
     }

@@ -54,8 +54,9 @@ TEST_CASE("Verificação de classes") {
         REQUIRE(userTest.getSobrenome() == "Augusto");
         REQUIRE(userTest.getCPF() == "0124567890");
         REQUIRE(userTest.getId() == 1);
-        REQUIRE(userTest.pedirReserva(authTest, authTest.getToken()) == "Reserva feita com sucesso.");
-        REQUIRE(userTest.requisitarAcesso(labTest, 0, 8) == 0);
+
+        // Não há eventos, todos os requisitos devem retornar -1 (que é acesso negado)
+        REQUIRE(userTest.requisitarAcesso(labTest, 0, 8) == -1);
         REQUIRE(userTest.requisitarAcesso(labTest, 0, 10) == -1);
 
         REQUIRE(otherTest.getNome() == "");

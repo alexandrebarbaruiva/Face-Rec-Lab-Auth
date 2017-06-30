@@ -89,24 +89,11 @@ public:
 		return token;
 	}
 };
-/**
-* @brief Classe principal, comunica com gerenciador e autenticador
-* Tipos de usuários
-* -1: não cadastrado
-* 0: genérico (somente pode entrar no laboratório)
-* 1: aluno (não pode reservar, pode entrar somente nas salas designadas)
-* 2: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
-* 3: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
-* 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
-*
-* TODO: Concluir.
-*/
 /* @brief Classe responsável por conter todos os eventos do laboratório.
 *
 * Eventos são aulas, palestras, limpezas, manutenções, etc.
 *
 */
-
 class Evento{
 
 private:
@@ -183,7 +170,18 @@ public:
 		return "Participante não registrado no evento.";
 	}
 };
-
+/**
+* @brief Classe principal, comunica com gerenciador e autenticador
+* Tipos de usuários
+* -1: não cadastrado
+* 0: genérico (somente pode entrar no laboratório)
+* 1: aluno (não pode reservar, pode entrar somente nas salas designadas)
+* 2: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas)
+* 3: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas)
+* 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
+*
+* TODO: Concluir.
+*/
 class Usuario{
 private:
 	std::string nome;
@@ -221,12 +219,14 @@ public:
 	int getId(void){
 		return id;
 	}
-
+	int getTipo(void){
+		return tipo;
+	}
 	/** @brief Função responsável pela reserva de salas para eventos.
 	*
 	* FIXME: Melhorar função
 	*/
-	
+
 	std::string pedirReserva(Autenticador& autenticador, Evento& eventoNovo, int horarioDesejado){
 		if (tipo < 1){
 			//autenticador.adicionaNovoEvento(eventoNovo, horarioDesejado);
