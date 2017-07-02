@@ -16,7 +16,7 @@ std\+::string \textbf{ get\+Nome} (void)
 \item 
 int \textbf{ get\+Id} (void)
 \item 
-void \textbf{ muda\+Senha} (std\+::string nova\+Senha, std\+::string antiga\+Senha)
+std\+::string \textbf{ muda\+Senha} (std\+::string nova\+Senha, std\+::string antiga\+Senha)
 \item 
 std\+::string \textbf{ gerador\+Token} (void)
 \item 
@@ -38,13 +38,13 @@ Além disso, somente é possível registrar novos usuários com a presença de u
 \subsubsection{Autenticador()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Autenticador\+::\+Autenticador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Construtor de autenticador vazio, não válido. \mbox{\label{class_autenticador_a4891aba543013dd7ef8ec2fbf9a20111}} 
+Construtor de autenticador vazio, deverá ler J\+S\+ON. \mbox{\label{class_autenticador_a4891aba543013dd7ef8ec2fbf9a20111}} 
 \index{Autenticador@{Autenticador}!Autenticador@{Autenticador}}
 \index{Autenticador@{Autenticador}!Autenticador@{Autenticador}}
 \subsubsection{Autenticador()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Autenticador\+::\+Autenticador (\begin{DoxyParamCaption}\item[{std\+::string}]{novo\+Nome,  }\item[{int}]{novo\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Construtor de autenticador válido, o token é gerado automaticamente e a senha é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um novo autenticador. 
+
 
 \subsection{Member Function Documentation}
 \mbox{\label{class_autenticador_a5a02663a4c6b5cdb9330c5f36b9dbafe}} 
@@ -59,7 +59,7 @@ Construtor de autenticador válido, o token é gerado automaticamente e a senha 
 \subsubsection{get\+Id()}
 {\footnotesize\ttfamily int Autenticador\+::get\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\label{class_autenticador_a6ac64162bdff37c3a84c2212f768f1a4}} 
+Informação inútil por enquanto, quando implementar J\+S\+ON terá utilidade. \mbox{\label{class_autenticador_a6ac64162bdff37c3a84c2212f768f1a4}} 
 \index{Autenticador@{Autenticador}!get\+Nome@{get\+Nome}}
 \index{get\+Nome@{get\+Nome}!Autenticador@{Autenticador}}
 \subsubsection{get\+Nome()}
@@ -71,14 +71,15 @@ Construtor de autenticador válido, o token é gerado automaticamente e a senha 
 \subsubsection{get\+Token()}
 {\footnotesize\ttfamily std\+::string Autenticador\+::get\+Token (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\label{class_autenticador_ad9f736a8521bd95f746c9f8f99278458}} 
+\mbox{\label{class_autenticador_af2c2821928097be716f7206c16a55491}} 
 \index{Autenticador@{Autenticador}!muda\+Senha@{muda\+Senha}}
 \index{muda\+Senha@{muda\+Senha}!Autenticador@{Autenticador}}
 \subsubsection{muda\+Senha()}
-{\footnotesize\ttfamily void Autenticador\+::muda\+Senha (\begin{DoxyParamCaption}\item[{std\+::string}]{nova\+Senha,  }\item[{std\+::string}]{antiga\+Senha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily std\+::string Autenticador\+::muda\+Senha (\begin{DoxyParamCaption}\item[{std\+::string}]{nova\+Senha,  }\item[{std\+::string}]{antiga\+Senha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+Função responsável por mudar a senha do \doxyref{Autenticador}{p.}{class_autenticador} 
 
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ classes.\+cpp}\end{DoxyCompactItemize}
+\textbf{ classes.\+cpp}\item 
+\textbf{ resumo.\+cpp}\end{DoxyCompactItemize}

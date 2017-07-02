@@ -1,8 +1,9 @@
-.TH "Usuario" 3 "Mon Jun 19 2017" "TP1 Projeto 2" \" -*- nroff -*-
+.TH "Usuario" 3 "Sun Jul 2 2017" "Projeto TP1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-Usuario
+Usuario \- Classe principal, comunica com gerenciador e autenticador\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -13,7 +14,7 @@ Usuario
 .RI "\fBUsuario\fP ()"
 .br
 .ti -1c
-.RI "\fBUsuario\fP (std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId)"
+.RI "\fBUsuario\fP (std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo)"
 .br
 .ti -1c
 .RI "std::string \fBgetNome\fP (void)"
@@ -22,27 +23,38 @@ Usuario
 .RI "std::string \fBgetSobrenome\fP (void)"
 .br
 .ti -1c
-.RI "std::string \fBgetCPFouMatricula\fP ()"
+.RI "std::string \fBgetCPF\fP (void)"
 .br
 .ti -1c
 .RI "int \fBgetId\fP (void)"
 .br
 .ti -1c
-.RI "std::string \fBpedirReserva\fP (\fBAutenticador\fP &autenticador, std::string token)"
+.RI "int \fBgetTipo\fP (void)"
 .br
 .ti -1c
-.RI "std::string \fBrequisitarAcesso\fP ()"
+.RI "std::string \fBpedirReserva\fP (\fBAutenticador\fP &autenticador, \fBEvento\fP &eventoNovo, int horarioDesejado)"
+.br
+.RI "Função responsável pela reserva de salas para eventos\&. "
+.ti -1c
+.RI "int \fBrequisitarAcesso\fP (\fBLaboratorio\fP &laboratorio, int salaDesejada, int horarioDesejado)"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+Classe principal, comunica com gerenciador e autenticador\&. 
+
+Tipos de usuários -1: não cadastrado 0: genérico (somente pode entrar no laboratório) 1: aluno (não pode reservar, pode entrar somente nas salas designadas) 2: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas) 3: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas) 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)
+.PP
+TODO: Concluir\&. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Usuario::Usuario ()\fC [inline]\fP"
 
-.SS "Usuario::Usuario (std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId)\fC [inline]\fP"
+.SS "Usuario::Usuario (std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo)\fC [inline]\fP"
 
 .SH "Member Function Documentation"
 .PP 
-.SS "std::string Usuario::getCPFouMatricula ()\fC [inline]\fP"
+.SS "std::string Usuario::getCPF (void)\fC [inline]\fP"
 
 .SS "int Usuario::getId (void)\fC [inline]\fP"
 
@@ -50,11 +62,15 @@ Usuario
 
 .SS "std::string Usuario::getSobrenome (void)\fC [inline]\fP"
 
-.SS "std::string Usuario::pedirReserva (\fBAutenticador\fP & autenticador, std::string token)\fC [inline]\fP"
+.SS "int Usuario::getTipo (void)\fC [inline]\fP"
 
-.SS "std::string Usuario::requisitarAcesso ()\fC [inline]\fP"
+.SS "std::string Usuario::pedirReserva (\fBAutenticador\fP & autenticador, \fBEvento\fP & eventoNovo, int horarioDesejado)\fC [inline]\fP"
+
+.PP
+Função responsável pela reserva de salas para eventos\&. Função não se encontra pronta\&. FIXME: Melhorar função 
+.SS "int Usuario::requisitarAcesso (\fBLaboratorio\fP & laboratorio, int salaDesejada, int horarioDesejado)"
 
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for TP1 Projeto 2 from the source code\&.
+Generated automatically by Doxygen for Projeto TP1 from the source code\&.

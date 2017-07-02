@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Projeto 2: Usuario Class Reference</title>
+<title>Projeto TP1: Usuario Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="smallLogo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Projeto 2
+   <div id="projectname">Projeto TP1
    </div>
    <div id="projectbrief">Este projeto consiste em implementar um sistema de identificação de rostos para acesso a um suposto laboratório.</div>
   </td>
@@ -88,27 +88,37 @@ $(document).ready(function(){initNavTree('class_usuario.html','');});
 <div class="title">Usuario Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe principal, comunica com gerenciador e autenticador.  
+ <a href="class_usuario.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa85a5371a098dfba5449140d9b8a472f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#aa85a5371a098dfba5449140d9b8a472f">Usuario</a> ()</td></tr>
 <tr class="separator:aa85a5371a098dfba5449140d9b8a472f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c2e911df75a670a9893d1927fd98c71"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a0c2e911df75a670a9893d1927fd98c71">Usuario</a> (std::string novoNome, std::string novoSobrenome, std::string novoCPFouMatricula, int novoId)</td></tr>
-<tr class="separator:a0c2e911df75a670a9893d1927fd98c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d0d6b61cd9e1afe71aee612739a3219"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a1d0d6b61cd9e1afe71aee612739a3219">Usuario</a> (std::string novoNome, std::string novoSobrenome, std::string novoCPF, int novoTipo)</td></tr>
+<tr class="separator:a1d0d6b61cd9e1afe71aee612739a3219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95cd963206ebacf43b033af966ef9a87"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a95cd963206ebacf43b033af966ef9a87">getNome</a> (void)</td></tr>
 <tr class="separator:a95cd963206ebacf43b033af966ef9a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8583289766b839e0357790d7d7f0353"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#ae8583289766b839e0357790d7d7f0353">getSobrenome</a> (void)</td></tr>
 <tr class="separator:ae8583289766b839e0357790d7d7f0353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3ea620c210576609be3d985e69ceada"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#ab3ea620c210576609be3d985e69ceada">getCPFouMatricula</a> ()</td></tr>
-<tr class="separator:ab3ea620c210576609be3d985e69ceada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b44376f453134195f798e16477514b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a6b44376f453134195f798e16477514b0">getCPF</a> (void)</td></tr>
+<tr class="separator:a6b44376f453134195f798e16477514b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71fe841133c88c6f2c71a5225fd1cd5c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a71fe841133c88c6f2c71a5225fd1cd5c">getId</a> (void)</td></tr>
 <tr class="separator:a71fe841133c88c6f2c71a5225fd1cd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61556dd4f0d1fbdfc7c3eb3722224f7e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a61556dd4f0d1fbdfc7c3eb3722224f7e">pedirReserva</a> (<a class="el" href="class_autenticador.html">Autenticador</a> &amp;autenticador, std::string token)</td></tr>
-<tr class="separator:a61556dd4f0d1fbdfc7c3eb3722224f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b20db66d345c36d264f4cf194bcbd49"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a4b20db66d345c36d264f4cf194bcbd49">requisitarAcesso</a> ()</td></tr>
-<tr class="separator:a4b20db66d345c36d264f4cf194bcbd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9b69560e3322320e873d4411927defb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#aa9b69560e3322320e873d4411927defb">getTipo</a> (void)</td></tr>
+<tr class="separator:aa9b69560e3322320e873d4411927defb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f737dc773adbfccd60665f7a3a053d6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#a0f737dc773adbfccd60665f7a3a053d6">pedirReserva</a> (<a class="el" href="class_autenticador.html">Autenticador</a> &amp;autenticador, <a class="el" href="class_evento.html">Evento</a> &amp;eventoNovo, int horarioDesejado)</td></tr>
+<tr class="memdesc:a0f737dc773adbfccd60665f7a3a053d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função responsável pela reserva de salas para eventos.  <a href="#a0f737dc773adbfccd60665f7a3a053d6">More...</a><br /></td></tr>
+<tr class="separator:a0f737dc773adbfccd60665f7a3a053d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24978a1815ad66c45a4084b747691eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_usuario.html#aa24978a1815ad66c45a4084b747691eb">requisitarAcesso</a> (<a class="el" href="class_laboratorio.html">Laboratorio</a> &amp;laboratorio, int salaDesejada, int horarioDesejado)</td></tr>
+<tr class="separator:aa24978a1815ad66c45a4084b747691eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe principal, comunica com gerenciador e autenticador. </p>
+<p>Tipos de usuários -1: não cadastrado 0: genérico (somente pode entrar no laboratório) 1: aluno (não pode reservar, pode entrar somente nas salas designadas) 2: palestrante (pode reservar somente eventos únicos, pode entrar somente nas salas designadas) 3: professor (pode reservar qualquer evento, pode entrar somente nas salas designadas) 4: funcionario (pode reservar qualquer evento, pode entrar em tudo)</p>
+<p>TODO: Concluir. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa85a5371a098dfba5449140d9b8a472f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa85a5371a098dfba5449140d9b8a472f">&#9670;&nbsp;</a></span>Usuario() <span class="overload">[1/2]</span></h2>
 
@@ -134,8 +144,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0c2e911df75a670a9893d1927fd98c71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c2e911df75a670a9893d1927fd98c71">&#9670;&nbsp;</a></span>Usuario() <span class="overload">[2/2]</span></h2>
+<a id="a1d0d6b61cd9e1afe71aee612739a3219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d0d6b61cd9e1afe71aee612739a3219">&#9670;&nbsp;</a></span>Usuario() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,13 +169,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>novoCPFouMatricula</em>, </td>
+          <td class="paramname"><em>novoCPF</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>novoId</em>&#160;</td>
+          <td class="paramname"><em>novoTipo</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -183,8 +193,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab3ea620c210576609be3d985e69ceada"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ea620c210576609be3d985e69ceada">&#9670;&nbsp;</a></span>getCPFouMatricula()</h2>
+<a id="a6b44376f453134195f798e16477514b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b44376f453134195f798e16477514b0">&#9670;&nbsp;</a></span>getCPF()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,8 +203,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Usuario::getCPFouMatricula </td>
+          <td class="memname">std::string Usuario::getCPF </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -286,8 +297,34 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a61556dd4f0d1fbdfc7c3eb3722224f7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61556dd4f0d1fbdfc7c3eb3722224f7e">&#9670;&nbsp;</a></span>pedirReserva()</h2>
+<a id="aa9b69560e3322320e873d4411927defb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b69560e3322320e873d4411927defb">&#9670;&nbsp;</a></span>getTipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Usuario::getTipo </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f737dc773adbfccd60665f7a3a053d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f737dc773adbfccd60665f7a3a053d6">&#9670;&nbsp;</a></span>pedirReserva()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,8 +341,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>token</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_evento.html">Evento</a> &amp;&#160;</td>
+          <td class="paramname"><em>eventoNovo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>horarioDesejado</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -320,35 +363,48 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Função responsável pela reserva de salas para eventos. </p>
+<p>Função não se encontra pronta. FIXME: Melhorar função </p>
+
 </div>
 </div>
-<a id="a4b20db66d345c36d264f4cf194bcbd49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b20db66d345c36d264f4cf194bcbd49">&#9670;&nbsp;</a></span>requisitarAcesso()</h2>
+<a id="aa24978a1815ad66c45a4084b747691eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24978a1815ad66c45a4084b747691eb">&#9670;&nbsp;</a></span>requisitarAcesso()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Usuario::requisitarAcesso </td>
+          <td class="memname">int Usuario::requisitarAcesso </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_laboratorio.html">Laboratorio</a> &amp;&#160;</td>
+          <td class="paramname"><em>laboratorio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>salaDesejada</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>horarioDesejado</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="classes_8cpp.html">classes.cpp</a></li>
+<li><a class="el" href="resumo_8cpp.html">resumo.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

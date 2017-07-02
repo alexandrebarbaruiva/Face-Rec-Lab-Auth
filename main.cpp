@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <unistd.h>
-#include "funcoes.cpp"
 #include "classes.cpp"
 
 int boasVindas();
@@ -85,7 +84,7 @@ int escolhaOpcoes(){
 }
 int fazerLogin(int opcaoEscolhida){
     std::string cpf;
-    int = horarioUsuario;
+    int horarioUsuario;
     std::cout<<"====================================================="<<std::endl;
     bool allowed = false;
     if(opcaoEscolhida > 0 and opcaoEscolhida <= 3){
@@ -119,7 +118,7 @@ int fazerLogin(int opcaoEscolhida){
         if(opcaoEscolhida == 4){
             std::string nomeEvento;
             std::string propositoEvento;
-            std::string reservadorEvento = usuarioAtual;
+            std::string reservadorEvento = usuarioAtual.getNome();
             int semanaEvento;
             int diaEvento;
             int horarioEvento;
@@ -137,37 +136,7 @@ int fazerLogin(int opcaoEscolhida){
             std::cout<<"Qual o horário do evento? ";
             std::cin>>horarioEvento;
 
-            if (usuarioAtual.getTipo() >= 3){
-                int rec;
-                std::cout<<"Deseja que o evento seja recorrente?\n0) Sim\n1) Não\n";
-                std::cin>>rec;
-
-                if(rec == 0){
-                    if(labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)].getNomeEvento == ""){
-                        // Good to go! Quem insere? Deveria ser Autenticador, por falta de tempo vai ser o próprio evento.
-                        labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)] = Evento(novoNome, novoProposito, reservadorEvento);
-                    }
-                }
-                else if(rec == 1){
-                    // FIXME: Por enquanto sem diferença entre recorrente
-                    if(labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)].getNomeEvento == ""){
-                        labOficial.salas[opcaoEscolhida].semanas[semanaEvento].dias[diaEvento].eventos[(horarioEvento/2)] = Evento(novoNome, novoProposito, reservadorEvento);
-                    }
-                }
-            }
-            else{
-                if(labOficial.salas[opcaoEscolhida].semanas[0].dias[0].eventos[(i/2)].getNomeEvento == "")
-            }
         }
-        // FIXME: Faz o mesmo que 4
-        else if(opcaoEscolhida == 5){
-
-        }
-        //
-        else if(opcaoEscolhida == 6){
-
-        }
-
     }
 
     if(allowed){

@@ -1,4 +1,4 @@
-.TH "md__r_e_a_d_m_e" 3 "Mon Jun 19 2017" "TP1 Projeto 2" \" -*- nroff -*-
+.TH "md__r_e_a_d_m_e" 3 "Sun Jul 2 2017" "Projeto TP1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -35,28 +35,29 @@ O Laboratório é composto de 3 salas e funciona das 8h às 22h, depois disso, a
 .PP
 Também conhecido como porteiro/segurança/administrador, é ele que faz todo e qualquer tipo de alteração às reservas e usuários\&. Considera-se o autenticador um ser onipresente, ele encontra-se em todas as salas e fora do laboratório ao mesmo tempo\&.
 .PP
-.SS "O Gerenciador"
+.SS "O \fBGerenciador\fP"
 .PP
 É a maquininha que olha pra sua cara e te diz se você é feio ou bonito\&. Se ele não gostar da sua cara, você não entra, simples assim\&. Falando sério agora: é isso mesmo que eu falei\&.
 .PP
-.SS "A Sala"
+.SS "A \fBSala\fP"
 .PP
-É uma sala normal, contém coisas que uma sala normal possui, você precisa ter uma aula ou evento registrados nela para ter acesso\&.
+É uma sala normal, contém coisas que uma sala normal possui, você precisa ter uma aula ou evento registrados nela para ter acesso\&. Ela tem um limite de capacidade de 20 pessoas, não há como comportar mais pessoas adequadamente\&.
 .PP
 .SS "O Usuário"
 .PP
-É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo\&. Você é classificado entre usuário genérico, professor, aluno, funcionário (limpeza, manutenção e estagiário de TI), palestrante\&.
+É você, você mesmo, você, esse ser capaz de quebrar o sistema mais estável do universo\&. Você é classificado entre usuário genérico, professor, aluno, palestrante e funcionário (limpeza, manutenção e estagiário de TI)\&. Usuários genéricos tem acesso apenas ao laboratório, sendo vetada a entrada às salas, o professor tem acesso às salas designadas a ele e tem a capacidade de agendar salas, seja de forma recorrente ou não\&. O mesmo vale para o palestrante, porém ele não pode agendar salas para eventos recorrentes, somente únicos\&. O aluno só entra na sala designada a ele e se ficar triste, nem na sala entra\&. Já o funcionário pode entrar na sala que quiser e reservar a sala que quiser (contanto que não esteja reservada por ninguém, é claro)\&.
 .PP
 .SS "Quem pode reservar sala?"
 .PP
-Professores, funcionários e palestrantes podem reservar salas\&.
+Professores, funcionários e palestrantes podem reservar salas\&. Está na descrição acima! Deve ter mão de estagiário aqui, só pode\&. Lembrando, professores e funcionários agendam eventos recorrentes e únicos, palestrantes somente eventos únicos\&. Não há limite de salas agendadas, espera-se que indivíduos sejam sensatos e agendem somente as salas necessárias\&.
 .PP
 .SS "Diagramas"
 .PP
 .SS "Classes"
 .PP
 .PP
-.SS "Estados"
+.SS "Decisão"
+.PP
 .PP
 .SS "Sequências"
 .PP
@@ -114,7 +115,50 @@ g++ test\&.cpp
 .fi
 .PP
 .PP
-.SS "Usando Catch Unit Testing (LEIAM)"
+Para usar o CMake em vez de compilar tudo, deve-se ir ao diretório e digitar 
+.PP
+.nf
+cmake \&.
+make
+
+.fi
+.PP
+.PP
+Depois executar 
+.PP
+.nf
+\&./LabSis
+
+.fi
+.PP
+.PP
+Para saber o tempo gasto nos últimos dias do projeto (irá mostrar todos os últimos 50 commits) 
+.PP
+.nf
+gtm report -n 50
+
+.fi
+.PP
+.PP
+Ou, para obter uma timeline 
+.PP
+.nf
+gtm report -this-year -format timeline-hours
+
+.fi
+.PP
+ 
+.SS "Bibliotecas externas"
+.PP
+.SS "Git Time Metric"
+.PP
+.IP "\(bu" 2
+GTM é usado para registrar o tempo gasto em cada arquivo e no total, útil para ter noção de onde a equipe está focando mais\&. Ele é leve, automático e há plugin para a maioria dos editores de texto\&. There is no need to remember to start and stop timers\&. It runs on occasion to capture activity triggered by your editor\&. The time metrics are stored locally with the git repository as Git notes and can be pushed to the remote repository\&.
+.PP
+.PP
+Repositório: https://github.com/git-time-metric/gtm
+.PP
+.SS "Catch Unit Testing (LEIAM)"
 .PP
 .IP "\(bu" 2
 What's the Catch?
@@ -128,6 +172,21 @@ Básico https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
 Para acelerar a compilação dos unit tests (bem provável que não cheguemos a precisar) https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 .PP
 .PP
+Repositório: https://github.com/philsquared/Catch
+.PP
+.SS "JSON for Modern C++"
+.PP
+Design Goals:
+.IP "\(bu" 2
+Serious Testing (they use Catch too);
+.IP "\(bu" 2
+Intuitive Syntax;
+.IP "\(bu" 2
+Trivial integration (just add json\&.hpp and you're ready to go)\&.
+.PP
+.PP
+Repositório: https://github.com/nlohmann/json
+.PP
 .SS "TODO:"
 .PP
 .IP "\(bu" 2
@@ -135,21 +194,121 @@ Para acelerar a compilação dos unit tests (bem provável que não cheguemos a 
 .IP "\(bu" 2
 [ ] Verificar diagrama de classes (Caio);
 .IP "\(bu" 2
-[ ] Criar diagrama de estados (Alexandre);
-.IP "\(bu" 2
-[ ] Verificar diagrama de estados (Caio ou Victor);
-.IP "\(bu" 2
-[x] DONE - Criar diagrama de sequências (Alexandre);
+[x] Criar diagrama de sequências (Alexandre);
 .IP "\(bu" 2
 [ ] Verificar diagrama de sequências (Caio);
 .IP "\(bu" 2
 [ ] DOING - Implementar unit tests (Alexandre, Caio e Victor);
+.IP "  \(bu" 4
+[x] Classe \fBGerenciador\fP
+.IP "  \(bu" 4
+[x] Classe Usuário
+.IP "  \(bu" 4
+[x] Classe \fBAutenticador\fP
+.IP "  \(bu" 4
+[x] Classe \fBDia\fP
+.IP "  \(bu" 4
+[x] Classe \fBSemana\fP
+.IP "  \(bu" 4
+[x] Classe \fBSala\fP
+.IP "  \(bu" 4
+[ ] Classe Laboratório
+.IP "  \(bu" 4
+[ ] Classe Banco de Dados
+.PP
+
+.IP "\(bu" 2
+[ ] Classe Banco de Dados
 .IP "\(bu" 2
 [ ] DOING - Implementar o projeto (Alexandre, Caio e Victor);
+.IP "  \(bu" 4
+[ ] CLI
+.IP "  \(bu" 4
+[x] Classe \fBGerenciador\fP
+.IP "  \(bu" 4
+[x] Classe Usuário
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[x] Classe \fBAutenticador\fP
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[x] Classe \fBDia\fP
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.IP "    \(bu" 6
+[ ] Implementar classe evento
+.IP "    \(bu" 6
+[ ] Implementar cancelamento de eventos
+.PP
+
+.IP "  \(bu" 4
+[x] Classe \fBSemana\fP
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[x] Classe \fBSala\fP
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[ ] Classe Laboratório
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[ ] Classe Banco de Dados
+.IP "    \(bu" 6
+[ ] Fazer leitura e gravação em JSON
+.PP
+
+.IP "  \(bu" 4
+[x] Adicionar biblioteca de JSON
+.IP "  \(bu" 4
+[x] Uso de CMake
+.IP "  \(bu" 4
+[x] Uso de doxygen
+.IP "  \(bu" 4
+[ ] Finalizar
+.PP
+
+.IP "\(bu" 2
+[ ] Comentar todas as classes para o doxygen
 .IP "\(bu" 2
 [ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
 .IP "\(bu" 2
 [ ] Fazer png's dos svg's
+.PP
+.PP
+.SS "Os arquivos"
+.PP
+.IP "1." 4
+\fBclasses\&.cpp\fP
+.IP "  \(bu" 4
+Onde está a implementação das classes
+.PP
+
+.IP "2." 4
+\fBmain\&.cpp\fP
+.IP "  \(bu" 4
+Onde está a implementação da CLI não terminada
+.PP
+
+.IP "3." 4
+rascunhos
+.IP "  \(bu" 4
+Usados para nortear o projeto
+.PP
+
 .PP
 .PP
 .SS "Diagramas de sequência feitos com isto:"

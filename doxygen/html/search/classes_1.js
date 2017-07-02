@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usuario',['Usuario',['../class_usuario.html',1,'']]]
+  ['dia',['Dia',['../class_dia.html',1,'']]]
 ];

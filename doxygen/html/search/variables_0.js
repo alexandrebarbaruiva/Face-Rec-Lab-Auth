@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['assertions',['assertions',['../struct_catch_1_1_totals.html#a885ded66df752147b30c3d45aa602ec9',1,'Catch::Totals']]]
+  ['autenticador',['autenticador',['../class_laboratorio.html#a27717414cd527b1e94cd302e802e33ac',1,'Laboratorio']]]
 ];

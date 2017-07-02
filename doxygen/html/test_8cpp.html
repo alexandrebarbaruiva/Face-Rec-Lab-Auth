@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Projeto 2: test.cpp File Reference</title>
+<title>Projeto TP1: test.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="smallLogo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Projeto 2
+   <div id="projectname">Projeto TP1
    </div>
    <div id="projectbrief">Este projeto consiste em implementar um sistema de identificação de rostos para acesso a um suposto laboratório.</div>
   </td>
@@ -99,9 +99,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0b3081beade6a7cfd4713afb020dccdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a0b3081beade6a7cfd4713afb020dccdc">TEST_CASE</a> (&quot;Verificação de interface de linha de comando&quot;)</td></tr>
-<tr class="separator:a0b3081beade6a7cfd4713afb020dccdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a182bbcfc11483ae194a7fdfd431803"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a3a182bbcfc11483ae194a7fdfd431803">TEST_CASE</a> (&quot;Verificação de classes&quot;)</td></tr>
+<tr class="memdesc:a3a182bbcfc11483ae194a7fdfd431803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit Tests.  <a href="#a3a182bbcfc11483ae194a7fdfd431803">More...</a><br /></td></tr>
 <tr class="separator:a3a182bbcfc11483ae194a7fdfd431803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -120,26 +119,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0b3081beade6a7cfd4713afb020dccdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b3081beade6a7cfd4713afb020dccdc">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST_CASE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;Verificação de interface de linha de comando&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3a182bbcfc11483ae194a7fdfd431803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a182bbcfc11483ae194a7fdfd431803">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a182bbcfc11483ae194a7fdfd431803">&#9670;&nbsp;</a></span>TEST_CASE()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,6 +134,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unit Tests. </p>
+<ol type="1">
+<li>Criar teste;</li>
+<li>Teste falhar;</li>
+<li>Implementar código (mantém-se no 3 enquanto 4 não ocorrer);</li>
+<li>Teste bem sucedido;</li>
+<li>Voltar ao passo (1) até conclusão do projeto.</li>
+</ol>
+<p>Estrutura dos testes é a seguinte:</p><ol type="1">
+<li>Inicializa testes com TEST_CASE;</li>
+<li>Inicializa objetos para teste</li>
+<li>Verifica funções de classes, separando diferentes classes com SECTION</li>
+<li>No início e no final do teste de uma classe, imprime na linha de comando qual classe está sendo testada. </li>
+</ol>
 
 </div>
 </div>

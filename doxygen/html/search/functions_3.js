@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pedirreserva',['pedirReserva',['../class_usuario.html#a61556dd4f0d1fbdfc7c3eb3722224f7e',1,'Usuario']]],
-  ['permitiracesso',['permitirAcesso',['../funcoes_8cpp.html#aca280fa2bf44a24ebbd89c1ba785156d',1,'funcoes.cpp']]]
+  ['escolhaopcoes',['escolhaOpcoes',['../main_8cpp.html#aeab4fbfecea7e1546371af4bb6b0334b',1,'main.cpp']]],
+  ['evento',['Evento',['../class_evento.html#a7aba3bd7a832c5365ea0ccb318511452',1,'Evento::Evento()'],['../class_evento.html#aa3f8ff6e86297a3fdb175eba570c88fe',1,'Evento::Evento(std::string novoNome, std::string novoProposito, std::string novoReservador)']]]
 ];

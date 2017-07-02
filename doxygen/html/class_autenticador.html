@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TP1 Projeto 2: Autenticador Class Reference</title>
+<title>Projeto TP1: Autenticador Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="smallLogo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">TP1 Projeto 2
+   <div id="projectname">Projeto TP1
    </div>
    <div id="projectbrief">Este projeto consiste em implementar um sistema de identificação de rostos para acesso a um suposto laboratório.</div>
   </td>
@@ -102,8 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6ac64162bdff37c3a84c2212f768f1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e525cb7934385d6cda445245a589d1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autenticador.html#a5e525cb7934385d6cda445245a589d1e">getId</a> (void)</td></tr>
 <tr class="separator:a5e525cb7934385d6cda445245a589d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f736a8521bd95f746c9f8f99278458"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autenticador.html#ad9f736a8521bd95f746c9f8f99278458">mudaSenha</a> (std::string novaSenha, std::string antigaSenha)</td></tr>
-<tr class="separator:ad9f736a8521bd95f746c9f8f99278458"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2c2821928097be716f7206c16a55491"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autenticador.html#af2c2821928097be716f7206c16a55491">mudaSenha</a> (std::string novaSenha, std::string antigaSenha)</td></tr>
+<tr class="separator:af2c2821928097be716f7206c16a55491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a02663a4c6b5cdb9330c5f36b9dbafe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autenticador.html#a5a02663a4c6b5cdb9330c5f36b9dbafe">geradorToken</a> (void)</td></tr>
 <tr class="separator:a5a02663a4c6b5cdb9330c5f36b9dbafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86e039f92325107cb467cf519dea102c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_autenticador.html#a86e039f92325107cb467cf519dea102c">getToken</a> (void)</td></tr>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Construtor de autenticador vazio, não válido. </p>
+<p>Construtor de autenticador vazio, deverá ler JSON. </p>
 
 </div>
 </div>
@@ -173,7 +173,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Construtor de autenticador válido, o token é gerado automaticamente e a senha é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um novo autenticador. </p>
 
 </div>
 </div>
@@ -227,6 +226,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Informação inútil por enquanto, quando implementar JSON terá utilidade. </p>
 
 </div>
 </div>
@@ -282,8 +282,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad9f736a8521bd95f746c9f8f99278458"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9f736a8521bd95f746c9f8f99278458">&#9670;&nbsp;</a></span>mudaSenha()</h2>
+<a id="af2c2821928097be716f7206c16a55491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2c2821928097be716f7206c16a55491">&#9670;&nbsp;</a></span>mudaSenha()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +292,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Autenticador::mudaSenha </td>
+          <td class="memname">std::string Autenticador::mudaSenha </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>novaSenha</em>, </td>
@@ -315,11 +315,13 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Função responsável por mudar a senha do <a class="el" href="class_autenticador.html" title="Classe responsável por autenticar reservas de salas e possíveis erros com a identificação facial...">Autenticador</a> </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="classes_8cpp.html">classes.cpp</a></li>
+<li><a class="el" href="resumo_8cpp.html">resumo.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

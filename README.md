@@ -48,7 +48,7 @@ Professores, funcionários e palestrantes podem reservar salas. Está na descri�
 
 ![classes](img/diagramaDeClasse.png)
 
-### Decisão
+### Decisão de usuário
 
 ![behavior](img/decisionprocess.png)
 
@@ -56,17 +56,15 @@ Professores, funcionários e palestrantes podem reservar salas. Está na descri�
 
 #### Realizar cadastros
 
-(RASCUNHO)
-![cadastrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaCadastro.svg)
+![cadastrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaCadastro.png)
 
 #### Entrar em uma sala
 
-(RASCUNHO)
-![entrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/46c3e055e667bb1edb28321e68fa63e3e3f31534/img/sequenciaAcesso.svg)
+![entrar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaAcesso.png)
 
 #### Requisitar reserva de sala
-(RASCUNHO)
-![requisitar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaRequisito.svg)
+
+![requisitar](https://gitlab.com/victorLandim/TP1Projeto2/blob/master/img/sequenciaRequisito.png)
 
 ## Como instalar
 
@@ -103,12 +101,27 @@ make
 
 Depois executar
 ```
-./LaboratoryOfMassDestruction
+./LabSis
 ```
 
+Para saber o tempo gasto nos últimos dias do projeto (irá mostrar todos os últimos 50 commits)
+```
+gtm report -n 50
+```
+
+Ou, para obter uma timeline
+```
+gtm report -this-year -format timeline-hours
+```
 ## Bibliotecas externas
 
-### Usando Catch Unit Testing (LEIAM)
+### Git Time Metric
+
+- GTM é usado para registrar o tempo gasto em cada arquivo e no total, útil para ter noção de onde a equipe está focando mais. Ele é leve, automático e há plugin para a maioria dos editores de texto. There is no need to remember to start and stop timers. It runs on occasion to capture activity triggered by your editor. The time metrics are stored locally with the git repository as Git notes and can be pushed to the remote repository.
+
+Repositório: https://github.com/git-time-metric/gtm
+
+### Catch Unit Testing (LEIAM)
 
 - What's the Catch?
 
@@ -120,12 +133,16 @@ https://github.com/philsquared/Catch/blob/master/docs/tutorial.md
 - Para acelerar a compilação dos unit tests (bem provável que não cheguemos a precisar)
 https://github.com/philsquared/Catch/blob/master/docs/slow-compiles.md
 
+Repositório: https://github.com/philsquared/Catch
+
 ### JSON for Modern C++
 
 Design Goals:
 - Serious Testing (they use Catch too);
 - Intuitive Syntax;
 - Trivial integration (just add json.hpp and you're ready to go).
+
+Repositório: https://github.com/nlohmann/json
 
 ### TODO:
 
@@ -170,8 +187,26 @@ Design Goals:
 * [ ] Implementar reconhecimento facial (Alexandre, Caio e Victor);
 * [ ] Fazer png's dos svg's
 
+### Os arquivos
 
-#### Diagramas de sequência feitos com isto:
+1. classes.cpp
+    - Onde está a implementação das classes;
+2. main.cpp
+    - Onde está a implementação da CLI não terminada;
+3. CMakeLists.text
+    - Arquivo para o cmake
+4. notused/
+    - Arquivos usados para nortear o projeto ou não mais usados;
+5. doxygen/
+    - Todos os arquivos gerados pelo doxygen
+6. img/
+    - Pasta contendo todas as imagens do projeto
+7. others/
+    - Pasta com as bibliotecas externas (excetuando gtm)
+
+#### Diagramas de sequência feitos com:
+
+Inicialmente:
 * https://bramp.github.io/js-sequence-diagrams/
-
-
+Finalmente:
+* https://www.lucidchart.com/

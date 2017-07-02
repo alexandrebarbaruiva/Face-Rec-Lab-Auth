@@ -1,6 +1,5 @@
 #define CATCH_CONFIG_MAIN
 #include "others/catch.hpp"
-#include "funcoes.cpp"
 #include "classes.cpp"
 
 /**
@@ -42,12 +41,6 @@ TEST_CASE("Verificação de classes") {
         Usuario professor = Usuario("Alexandre", "Augusto", "11111111111", 3);
     }
 
-    /**
-    * Laboratorio possui 2 eventos
-    *
-    *
-    */
-
     SECTION("Verifica classe Usuário", "[Informação]" ){
         std::cout<<"USUARIO BEGIN"<<std::endl;
         REQUIRE(userTest.getNome() == "Alexandre");
@@ -83,9 +76,6 @@ TEST_CASE("Verificação de classes") {
         std::cout<<"GERENCIADOR BEGIN"<<std::endl;
         //(usuario, salaDesejada, salaNum, horarioDesejado)
         REQUIRE(gerTest.permitirAcesso(userTest, salaTest, 1, 0) == -1);
-        //REQUIRE(gerTest.permitirAcesso(0, true) == 0);
-        //REQUIRE(gerTest.permitirAcesso(1, false) == -1);
-        //REQUIRE(gerTest.permitirAcesso(1, true) == 1);
         std::cout<<"GERENCIADOR OK\n"<<std::endl;
     }
 
@@ -164,7 +154,6 @@ TEST_CASE("Verificação de classes") {
         REQUIRE(labTest.visualizaEventosSemana(1, 0) == "OK.");
         REQUIRE(labTest.visualizaEventosSemana(0, 1) == "OK.");
         REQUIRE(labTest.visualizaEventosSemana(0, 2) == "OK.");
-        //REQUIRE(labTest.requisitarAcesso(0) == 0);//Adicionar cpf no input
 
         std::cout<<"LABORATORIO OK\n"<<std::endl;
     }

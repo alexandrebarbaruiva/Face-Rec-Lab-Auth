@@ -11,10 +11,8 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Verificação de interface de linha de comando\char`\"{})
-\item 
 \textbf{ T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Verificação de classes\char`\"{})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unit Tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
@@ -27,15 +25,29 @@
 
 
 \subsection{Function Documentation}
-\mbox{\label{test_8cpp_a0b3081beade6a7cfd4713afb020dccdc}} 
-\index{test.\+cpp@{test.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
-\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test.\+cpp@{test.\+cpp}}
-\subsubsection{T\+E\+S\+T\+\_\+\+C\+A\+S\+E()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily T\+E\+S\+T\+\_\+\+C\+A\+SE (\begin{DoxyParamCaption}\item[{\char`\"{}Verificação de interface de linha de comando\char`\"{}}]{ }\end{DoxyParamCaption})}
-
 \mbox{\label{test_8cpp_a3a182bbcfc11483ae194a7fdfd431803}} 
 \index{test.\+cpp@{test.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
 \index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test.\+cpp@{test.\+cpp}}
-\subsubsection{T\+E\+S\+T\+\_\+\+C\+A\+S\+E()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{T\+E\+S\+T\+\_\+\+C\+A\+S\+E()}
 {\footnotesize\ttfamily T\+E\+S\+T\+\_\+\+C\+A\+SE (\begin{DoxyParamCaption}\item[{\char`\"{}Verificação de classes\char`\"{}}]{ }\end{DoxyParamCaption})}
 
+
+
+Unit Tests. 
+
+
+\begin{DoxyEnumerate}
+\item Criar teste;
+\item Teste falhar;
+\item Implementar código (mantém-\/se no 3 enquanto 4 não ocorrer);
+\item Teste bem sucedido;
+\item Voltar ao passo (1) até conclusão do projeto.
+\end{DoxyEnumerate}
+
+Estrutura dos testes é a seguinte\+:
+\begin{DoxyEnumerate}
+\item Inicializa testes com T\+E\+S\+T\+\_\+\+C\+A\+SE;
+\item Inicializa objetos para teste
+\item Verifica funções de classes, separando diferentes classes com S\+E\+C\+T\+I\+ON
+\item No início e no final do teste de uma classe, imprime na linha de comando qual classe está sendo testada. 
+\end{DoxyEnumerate}

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['falsetype',['FalseType',['../struct_catch_1_1_detail_1_1_false_type.html',1,'Catch::Detail']]]
+  ['sala',['Sala',['../class_sala.html',1,'']]],
+  ['semana',['Semana',['../class_semana.html',1,'']]]
 ];

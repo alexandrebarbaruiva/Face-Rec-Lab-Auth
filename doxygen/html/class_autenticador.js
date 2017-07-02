@@ -6,5 +6,5 @@ var class_autenticador =
     [ "getId", "class_autenticador.html#a5e525cb7934385d6cda445245a589d1e", null ],
     [ "getNome", "class_autenticador.html#a6ac64162bdff37c3a84c2212f768f1a4", null ],
     [ "getToken", "class_autenticador.html#a86e039f92325107cb467cf519dea102c", null ],
-    [ "mudaSenha", "class_autenticador.html#ad9f736a8521bd95f746c9f8f99278458", null ]
+    [ "mudaSenha", "class_autenticador.html#af2c2821928097be716f7206c16a55491", null ]
 ];

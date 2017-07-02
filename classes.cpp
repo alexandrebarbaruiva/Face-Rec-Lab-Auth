@@ -29,7 +29,7 @@ private:
 	int id;
 public:
 	/**
-	* Construtor de autenticador vazio, lê de JSON.
+	* Construtor de autenticador vazio, deverá ler JSON.
 	*/
 	Autenticador(){
 		//mudar pra ler info de JSON
@@ -39,7 +39,7 @@ public:
 		token = "0";
 	}
 
-	/**
+	/*
 	* Construtor de autenticador válido, o token é gerado automaticamente e a senha
 	* é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um
 	* novo autenticador.
@@ -54,11 +54,14 @@ public:
 		return nome;
 	}
 	/**
-	* Informação inútil por enquanto, quando implementar JSON vai ser maravilhoso.
+	* Informação inútil por enquanto, quando implementar JSON terá utilidade.
 	*/
 	int getId(void){
 		return id;
 	}
+	/**
+	* Função responsável por mudar a senha do Autenticador
+	*/
 	std::string mudaSenha(std::string novaSenha, std::string antigaSenha){
 		if (senha == antigaSenha and id != -1){
 			senha = novaSenha;
@@ -71,6 +74,13 @@ public:
 			return "Senha errada, tente novamente.";
 		}
 	}
+	/* @brief Função responsável por gerar o token do Autenticador
+	*
+	* O token é uma pseudo senha muito usada na web para comunicação com servidor estilo stateless.
+	* É um método mais eficiente e seguro para acesso de banco de dados.
+	*
+	* Caso queira ler mais: https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication
+	*/
 	std::string geradorToken(void){
 		std::string token;
 		static const char letras[] =
@@ -89,13 +99,12 @@ public:
 		return token;
 	}
 };
-/* @brief Classe responsável por conter todos os eventos do laboratório.
+
+/** @brief Classe responsável por conter todos os eventos de um dia de uma sala.
 *
 * Eventos são aulas, palestras, limpezas, manutenções, etc.
-*
 */
 class Evento{
-
 private:
 	std::string nome;
 	std::string cpf[20];
@@ -103,7 +112,7 @@ private:
 	std::string reservador;
 	//TODO: adicionar nomeDoReservador (deve ser nome ou id? requisito: possuir tipo palestrante, professor ou funcionario)
 public:
-	//TODO: para ler de JSON
+	//TODO: ler de JSON
 	Evento(){
 		nome = "";
 		proposito = "";
@@ -112,6 +121,9 @@ public:
 			cpf[i] = "";
 		}
 	}
+	/* Construtor prático para inserção rápida
+	*
+	*/
 	Evento(std::string novoNome, std::string novoProposito, std::string novoReservador){
 		nome = novoNome;
 		proposito = novoProposito;
@@ -120,6 +132,7 @@ public:
 			cpf[i] = "";
 		}
 	}
+	/* Função responsável por remover um evento, ainda não se encontra completa */
 	std::string removeEvento(){
 		nome = "";
 		proposito = "";
@@ -129,19 +142,24 @@ public:
 		}
 		return "Evento removido com sucesso.";
 	}
+	/* Função responsável por modificar nome do evento */
 	void setNomeEvento(std::string novoNome){
 		nome = novoNome;
 	}
+	/* Função que retorna nome do evento, que é um atributo privado */
 	std::string getNomeEvento(){
 		return nome;
 	}
+	/* Função que determina o propósito do evento, não há padrão a ser seguido */
 	std::string adicionaProposito(std::string novoProposito){
 		proposito = novoProposito;
 		return "Propósito adicionado com sucesso.";
 	}
+	/* Função que retorna o propósito do evento, mesmo esquema do getNomeEvento */
 	std::string getProposito(){
 		return proposito;
 	}
+	/* Função para adicionar participantes ao evento */
 	std::string adicionaParticipante(std::string cpfParticipante){
 		//validaParticipante(cpfParticipante);
 		for (int vaga = 0; vaga < 20; vaga++){
@@ -152,6 +170,7 @@ public:
 		}
 		return "Não há vagas disponíveis.";
 	}
+	/* Função para remover participantes do evento */
 	std::string removeParticipante(std::string cpfParticipante){
 		for(int vaga = 0; vaga < 20; vaga++){
 			if(cpf[vaga] == cpfParticipante){
@@ -161,6 +180,7 @@ public:
 		}
 		return "Participante não encontrado.";
 	}
+	/* Função para verificar se participantes estão registrados no evento */
 	std::string verificaParticipante(std::string participanteVerificado){
 		for (int i = 0; i < 20; i++){
 			if(cpf[i] == participanteVerificado){
@@ -172,6 +192,7 @@ public:
 };
 /**
 * @brief Classe principal, comunica com gerenciador e autenticador
+*
 * Tipos de usuários
 * -1: não cadastrado
 * 0: genérico (somente pode entrar no laboratório)
@@ -206,27 +227,31 @@ public:
 		id = 1;
 		tipo = novoTipo;
 	}
-
+	/* Função para retornar nome do usuário */
 	std::string getNome(void){
 		return nome;
 	}
+	/* Função para retornar sobrenome do usuário */
 	std::string getSobrenome(void){
 		return sobrenome;
 	}
+	/* Função para retornar CPF do usuário */
 	std::string getCPF(void){
 		return cpf;
 	}
+	/* Função para retornar ID de sistema do usuário */
 	int getId(void){
 		return id;
 	}
+	/* Função para retornar tipo do usuário, descrição detalhada no início da classe */
 	int getTipo(void){
 		return tipo;
 	}
 	/** @brief Função responsável pela reserva de salas para eventos.
 	*
+	* Função não se encontra pronta.
 	* FIXME: Melhorar função
 	*/
-
 	std::string pedirReserva(Autenticador& autenticador, Evento& eventoNovo, int horarioDesejado){
 		if (tipo < 1){
 			//autenticador.adicionaNovoEvento(eventoNovo, horarioDesejado);
@@ -236,6 +261,7 @@ public:
 			return "Algo de errado aconteceu";
 		}
 	}
+	/* Função para requisitar acesso ao laboratório */
 	int requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado);
 };
 
@@ -246,15 +272,18 @@ public:
 	Evento eventos[12];
 	//Horários disponíveis para eventos =	{0,2,4,6,8,10,12,14,16,18,20,22}
 
+	/* Contrutor padrão */
 	Dia(){
 		nome = "Segunda";
 	}
+	/* Contrutor adequado para Semana */
 	Dia(std::string nomeDia){
 		nome = nomeDia;
 		for(int i = 0; i < 12; i++){
 			eventos[i] = Evento();
 		}
 	}
+	/* Função para criar ou modificar evento */
 	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento novoEvento, int horario){
 		horario = horario/2;
 		if (autenticador.getToken() == token){
@@ -265,12 +294,18 @@ public:
 			return "Algo de errado aconteceu.";
 		}
 	}
+	/* Função para mostrar o nome do evento */
 	std::string mostraEvento(int horario){
 		return eventos[horario].getNomeEvento();
 	}
+	/* Função para mostrar o nome do dia do evento */
 	std::string mostraNomeDia(){
 		return nome;
 	}
+	/* @brief Função para verificar se participante está presente no evento
+	*
+	* Resquício de quando as classes possuíam todos os atributos privados
+	*/
 	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
 		horarioDesejado = horarioDesejado/2;
 		return eventos[horarioDesejado].verificaParticipante(participanteVerificado);
@@ -290,6 +325,7 @@ public:
 		dias[5] = Dia("Sábado");
 		dias[6] = Dia("Domingo");
 	}
+	/* Função para mostrar todos os eventos do dia */
 	std::string visualizaEventosDia(int diaDesejado){
 		std::string resposta;
 		resposta += (dias[diaDesejado].mostraNomeDia() + "\n");
@@ -301,6 +337,7 @@ public:
 		std::cout<<resposta;
 		return "OK.";
 	}
+	/* Função para mostrar todos os eventos da semana */
 	std::string visualizaEventosSemana(void){
 		std::string resposta;
 		for(int day = 0; day < 7; day++){
@@ -314,6 +351,10 @@ public:
 		std::cout<<resposta;
 		return "OK.";
 	}
+	/* @brief Função para modificar evento
+	*
+	* Resquício de quando as classes possuíam todos os atributos privados
+	*/
 	std::string mudaEvento(Autenticador& autenticador, std::string token, Evento& novoEvento, int diaDesejado, int horario){
 		if (autenticador.getToken() == token){
 			dias[diaDesejado].mudaEvento(autenticador, token, novoEvento, horario);
@@ -323,6 +364,10 @@ public:
 			return "Algo de errado aconteceu.";
 		}
 	}
+	/* @brief Função para verificar se participante está presente no evento
+	*
+	* Resquício de quando as classes possuíam todos os atributos privados
+	*/
 	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
 		return dias[0].verificaParticipante(participanteVerificado, horarioDesejado);
 	}
@@ -337,11 +382,13 @@ public:
 			semanas[i] = Semana();
 		}
 	}
+	/* Função para mostrar todos os eventos do dia */
 	std::string visualizaEventosDia(int diaDesejado, int semanaDesejada){
 		semanas[semanaDesejada].visualizaEventosDia(diaDesejado);
 		std::cout<<"\n";
 		return "OK.";
 	}
+	/* Função para mostrar todos os eventos da semana */
 	std::string visualizaEventosSemana(int semanaDesejada){
 		std::cout<<"SEMANA " + std::to_string(semanaDesejada)<<std::endl;
 		semanas[semanaDesejada].visualizaEventosSemana();
@@ -357,6 +404,10 @@ public:
 		}
 		return semanas[SemanaFinalDesejada].mudaEvento(autenticador, token, novoEvento, diaDesejado, horario);
 	}
+	/* @brief Função para verificar se participante está presente no evento
+	*
+	* Resquício de quando as classes possuíam todos os atributos privados
+	*/
 	std::string verificaParticipante(std::string participanteVerificado, int horarioDesejado){
 		return semanas[0].verificaParticipante(participanteVerificado, horarioDesejado);
 	}
@@ -403,6 +454,7 @@ public:
 			salas[i] = Sala();
 		}
 	}
+	/* Função para mostrar todos os eventos do dia */
 	std::string visualizaEventosDia(){
 		for (int salaAtual = 0; salaAtual < 3; salaAtual++){
 			std::cout<<"SALA " + std::to_string(salaAtual)<<std::endl;
@@ -410,6 +462,7 @@ public:
 		}
 		return "OK.";
 	}
+	/* Função para mostrar todos os eventos da semana desejada */
 	std::string visualizaEventosSemana(int salaDesejada, int semanaDesejada){
 		return salas[salaDesejada].visualizaEventosSemana(semanaDesejada);
 	}
@@ -419,6 +472,7 @@ public:
 	std::string mudaEventoRecorrente(Evento& novoEvento, int semanaInicialDesejada, int SemanaFinalDesejada,int diaDesejado, int horario, int salaDesejada){
 		return salas[salaDesejada].mudaEventoRecorrente(autenticador, autenticador.getToken(), novoEvento, semanaInicialDesejada, SemanaFinalDesejada, diaDesejado, horario);
 	}
+	/* Função para permitir acesso ao usuário */
 	int requisitarAcesso(Usuario& usuario, int salaDesejada, int horarioDesejado){
 		return gerenciador.permitirAcesso(usuario, salas[salaDesejada], salaDesejada, horarioDesejado);
 	}
@@ -427,33 +481,3 @@ public:
 int Usuario::requisitarAcesso(Laboratorio& laboratorio, int salaDesejada, int horarioDesejado){
 	return laboratorio.requisitarAcesso(*this, salaDesejada, horarioDesejado);
 }
-
-
-/* Exemplo de como criar uma lista ordenada que pode ser utilizada no BD, ainda nao achei como salvar isso no arquivo json...
-#include "json.hpp"
-
-using json = nlohmann::json;
-
-int main()
-{
-    // create JSON values
-    json object = {{"1-CPF", "2-Nome"}};
-
-    // print values
-    std::cout << object << '\n';
-
-    // add values
-    auto res1 = object.emplace("123456789", "Caio");
-    res1 = object.emplace("987654321", "Matheus");
-    res1 = object.emplace("987651234", "Victor");
-    res1 = object.emplace("123459876", "Alexandre");
-
-    auto aluno = object.find("123456789");
-    // print values
-    std::cout << object << '\n';
-    std::cout << *aluno << '\n';
-    std::cout << *res1.first << " " << std::boolalpha << res1.second << '\n';
-}
-;
-}
-*/

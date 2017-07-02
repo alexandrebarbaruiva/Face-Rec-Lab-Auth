@@ -1,4 +1,4 @@
-.TH "Autenticador" 3 "Mon Jun 19 2017" "TP1 Projeto 2" \" -*- nroff -*-
+.TH "Autenticador" 3 "Sun Jul 2 2017" "Projeto TP1" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,7 +23,7 @@ Autenticador \- Classe responsável por autenticar reservas de salas e possívei
 .RI "int \fBgetId\fP (void)"
 .br
 .ti -1c
-.RI "void \fBmudaSenha\fP (std::string novaSenha, std::string antigaSenha)"
+.RI "std::string \fBmudaSenha\fP (std::string novaSenha, std::string antigaSenha)"
 .br
 .ti -1c
 .RI "std::string \fBgeradorToken\fP (void)"
@@ -42,22 +42,22 @@ Além disso, somente é possível registrar novos usuários com a presença de u
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Autenticador::Autenticador ()\fC [inline]\fP"
-Construtor de autenticador vazio, não válido\&. 
+Construtor de autenticador vazio, deverá ler JSON\&. 
 .SS "Autenticador::Autenticador (std::string novoNome, int novoId)\fC [inline]\fP"
-Construtor de autenticador válido, o token é gerado automaticamente e a senha é padrão para todos, a mudança de senha deve ocorrer no ato do registro de um novo autenticador\&. 
+
 .SH "Member Function Documentation"
 .PP 
 .SS "std::string Autenticador::geradorToken (void)\fC [inline]\fP"
 
 .SS "int Autenticador::getId (void)\fC [inline]\fP"
-
+Informação inútil por enquanto, quando implementar JSON terá utilidade\&. 
 .SS "std::string Autenticador::getNome (void)\fC [inline]\fP"
 
 .SS "std::string Autenticador::getToken (void)\fC [inline]\fP"
 
-.SS "void Autenticador::mudaSenha (std::string novaSenha, std::string antigaSenha)\fC [inline]\fP"
-
+.SS "std::string Autenticador::mudaSenha (std::string novaSenha, std::string antigaSenha)\fC [inline]\fP"
+Função responsável por mudar a senha do \fBAutenticador\fP 
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for TP1 Projeto 2 from the source code\&.
+Generated automatically by Doxygen for Projeto TP1 from the source code\&.
