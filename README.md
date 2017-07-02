@@ -104,6 +104,11 @@ Depois executar
 ./LabSis
 ```
 
+Para ter acesso ao Git Time Metric
+'''
+git fetchgtm
+'''
+
 Para saber o tempo gasto nos últimos dias do projeto (irá mostrar todos os últimos 50 commits)
 ```
 gtm report -n 50
