@@ -80,7 +80,7 @@ cd local/onde/está/o/código/TP1Projeto2
 
 Depois compilar o main.cpp
 ```
-g++ main.cpp
+g++ main.cpp -std=c++11
 ```
 
 E executar
@@ -105,9 +105,9 @@ Depois executar
 ```
 
 Para ter acesso ao Git Time Metric
-'''
+```
 git fetchgtm
-'''
+```
 
 Para saber o tempo gasto nos últimos dias do projeto (irá mostrar todos os últimos 50 commits)
 ```
